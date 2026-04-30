@@ -1,11 +1,4 @@
-/* ==========================================================
-   RAINLINE — CONTACT PAGE
-   File: /css/contact.css
-   ========================================================== */
 
-/* =========================
-   CONTACT HERO
-   ========================= */
 
 .contact-hero {
     padding: clamp(20px, 3vw, 36px) 0 var(--section-gap);
@@ -90,9 +83,7 @@
     color: var(--color-accent-soft);
 }
 
-/* =========================
-   HERO CARD
-   ========================= */
+
 
 .contact-hero-card {
     position: relative;
@@ -239,9 +230,7 @@
     color: var(--color-heading);
 }
 
-/* =========================
-   MAIN CONTACT
-   ========================= */
+
 
 .contact-main-layout {
     display: grid;
@@ -375,9 +364,7 @@
     min-height: auto;
 }
 
-/* =========================
-   AREA / MAP
-   ========================= */
+
 
 .contact-area-grid {
     display: grid;
@@ -457,9 +444,7 @@
     color: var(--color-text);
 }
 
-/* =========================
-   EXPECTATIONS
-   ========================= */
+
 
 .contact-expect-shell {
     position: relative;
@@ -611,9 +596,7 @@
     color: var(--color-muted);
 }
 
-/* =========================
-   FAQ LOCAL TWEAKS
-   ========================= */
+
 
 .contact-faq .faq-shell {
     display: grid;
@@ -633,9 +616,7 @@
     color: var(--color-muted);
 }
 
-/* =========================
-   RESPONSIVE
-   ========================= */
+
 
 @media (max-width: 1180px) {
 
@@ -780,10 +761,6 @@
 }
 
 
-/* ==========================================================
-   CONTACT HERO — TITLE WIDTH FIX
-   делает заголовок меньше и даёт тексту больше ширины
-   ========================================================== */
 
 @media (min-width: 981px) {
     .contact-page .contact-hero-shell {
@@ -813,11 +790,6 @@
 }
 
 
-/* ==========================================================
-   CONTACT MAIN — EQUAL CARD / FORM HEIGHT + SMALL TOP SPACING
-   вставить в самый конец css/contact.css
-   ========================================================== */
-
 /* меньше верхний отступ у контактных секций */
 .contact-page .contact-main.section,
 .contact-page .contact-area.section,
@@ -826,14 +798,12 @@
     padding-top: clamp(18px, 3vw, 34px) !important;
 }
 
-/* карточка и форма становятся гармоничнее по размеру */
 .contact-page .contact-main-layout {
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     align-items: stretch;
     gap: clamp(20px, 4vw, 52px);
 }
 
-/* убираем sticky, чтобы карточка могла стать одной высоты с формой */
 .contact-page .contact-info-panel {
     position: relative;
     top: auto;
@@ -845,25 +815,23 @@
     justify-content: space-between;
 }
 
-/* форма тоже растягивается в высоту */
+
 .contact-page .contact-form {
     height: 100%;
     align-self: stretch;
 }
 
-/* чтобы внутренности формы красиво заполняли высоту */
 .contact-page .contact-form .form-grid {
     height: 100%;
     display: flex;
     flex-direction: column;
 }
 
-/* кнопка аккуратно уходит вниз, если места больше */
 .contact-page .contact-form button[type="submit"] {
     margin-top: auto;
 }
 
-/* делаем левую карточку чуть компактнее внутри */
+
 .contact-page .contact-info-panel {
     padding: clamp(20px, 3vw, 32px);
 }
@@ -876,7 +844,7 @@
     margin-top: 18px;
 }
 
-/* адаптив */
+
 @media (max-width: 1180px) {
     .contact-page .contact-main-layout {
         grid-template-columns: 1fr;
@@ -908,10 +876,6 @@
 }
 
 
-/* ==========================================================
-   CONTACT MAP — MAP LENS / REAL MAP
-   интересный вариант без цифр и без карточек
-   ========================================================== */
 
 .contact-page .contact-map-lens {
     position: relative;
@@ -963,7 +927,7 @@
     color: var(--color-muted);
 }
 
-/* address line */
+
 
 .map-lens-address {
     display: inline-flex;
@@ -985,7 +949,7 @@
     color: var(--color-accent);
 }
 
-/* icon signals */
+
 
 .map-lens-signals {
     display: flex;
@@ -1063,7 +1027,7 @@
         -80px 330px 0 rgba(79, 117, 128, 0.26);
 }
 
-/* real map circle */
+
 
 .map-lens-frame {
     position: relative;
@@ -1109,7 +1073,7 @@
         linear-gradient(180deg, rgba(23, 40, 46, 0.02), rgba(23, 40, 46, 0.12));
 }
 
-/* caption under lens */
+
 
 .map-lens-caption {
     position: absolute;
@@ -1145,7 +1109,7 @@
     line-height: 1.45;
 }
 
-/* hover */
+
 
 .map-lens-visual:hover .map-lens-frame {
     box-shadow: 0 34px 96px rgba(23, 40, 46, 0.2);
@@ -1155,7 +1119,7 @@
     border-color: rgba(79, 117, 128, 0.28);
 }
 
-/* responsive */
+
 
 @media (max-width: 980px) {
     .map-lens-layout {
@@ -1167,8 +1131,6 @@
         max-width: 560px;
     }
 }
-
-/* tablet: keep desktop layout but more compact */
 @media (max-width: 980px) and (min-width: 761px) {
     .contact-page .contact-map-lens {
         padding: clamp(24px, 3.8vw, 46px) 0 !important;
@@ -1253,10 +1215,7 @@
     }
 }
 
-/* ==========================================================
-   MAP LENS — HOVER COLOR CHANGE
-   карта меняет настроение при наведении
-   ========================================================== */
+
 
 .map-lens-frame iframe {
     transition:
@@ -1264,18 +1223,18 @@
         transform 0.65s ease;
 }
 
-/* базовое спокойное состояние карты */
+
 .map-lens-frame iframe {
     filter: grayscale(0.28) saturate(0.78) contrast(1.04) brightness(0.98);
 }
 
-/* при наведении карта становится живее и холоднее */
+
 .map-lens-visual:hover .map-lens-frame iframe {
     filter: grayscale(0.02) saturate(1.18) contrast(1.08) brightness(1.02) hue-rotate(8deg);
     transform: scale(1.03);
 }
 
-/* рамка линзы тоже реагирует */
+
 .map-lens-visual:hover .map-lens-frame {
     border-color: rgba(79, 117, 128, 0.48);
     box-shadow:
@@ -1283,7 +1242,6 @@
         0 0 0 10px rgba(212, 227, 230, 0.32);
 }
 
-/* затемнение поверх карты становится мягче */
 .map-lens-frame::after {
     transition: opacity 0.65s ease, background 0.65s ease;
 }
@@ -1294,7 +1252,7 @@
         linear-gradient(180deg, rgba(79, 117, 128, 0.04), rgba(23, 40, 46, 0.08));
 }
 
-/* орбита вокруг карты меняет цвет */
+
 .map-lens-orbit,
 .map-lens-orbit::before {
     transition:
@@ -1311,7 +1269,7 @@
     border-color: rgba(79, 117, 128, 0.36);
 }
 
-/* подпись под картой тоже становится активной */
+
 .map-lens-caption {
     transition:
         color 0.45s ease,
@@ -1337,16 +1295,13 @@
     color: rgba(255, 255, 255, 0.86);
 }
 
-/* ==========================================================
-   CONTACT FORM — CUSTOM SELECT ARROW
-   для contactService и contactTiming
-   ========================================================== */
+
 
 .contact-form .field {
     position: relative;
 }
 
-/* убираем дефолтную стрелку у select */
+
 .contact-form select {
     appearance: none;
     -webkit-appearance: none;
@@ -1355,7 +1310,7 @@
     cursor: pointer;
 }
 
-/* кастомная стрелка */
+
 .contact-form .field:has(select)::after {
     content: "";
     position: absolute;
@@ -1372,26 +1327,23 @@
         border-color var(--transition-base);
 }
 
-/* hover */
+
 .contact-form .field:has(select):hover::after {
     border-color: var(--color-accent-hover);
 }
 
-/* когда select в фокусе — стрелка чуть поднимается */
+
 .contact-form .field:has(select:focus)::after {
     transform: rotate(45deg) translate(-2px, -2px);
     border-color: var(--color-accent-hover);
 }
 
-/* если браузер показывает старую IE стрелку */
+
 .contact-form select::-ms-expand {
     display: none;
 }
 
-/* ==========================================================
-   CONTACT FORM — TEXTAREA CLEAN STYLE
-   убирает дефолтное растягивание и делает textarea аккуратной
-   ========================================================== */
+
 
 .contact-form textarea {
     resize: none;
@@ -1402,7 +1354,7 @@
     line-height: 1.55;
 }
 
-/* убираем дефолтные браузерные стили */
+
 .contact-form input,
 .contact-form select,
 .contact-form textarea {
@@ -1411,7 +1363,6 @@
     appearance: none;
 }
 
-/* чтобы textarea выглядела как остальные поля */
 .contact-form textarea {
     width: 100%;
     padding: 14px 16px;

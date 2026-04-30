@@ -1,15 +1,4 @@
-/* ==========================================================
-   RAINLINE — LEGAL PAGES
-   File: /css/legal.css
-   Used on:
-   privacy-policy.html
-   cookie-policy.html
-   terms-of-service.html
-   ========================================================== */
 
-/* =========================
-   LEGAL HERO
-   ========================= */
 
 .legal-hero {
     padding: clamp(24px, 4vw, 54px) 0 var(--section-gap-sm);
@@ -109,9 +98,7 @@
     color: var(--color-accent);
 }
 
-/* =========================
-   LEGAL LAYOUT
-   ========================= */
+
 
 .legal-content-section {
     overflow: visible;
@@ -183,9 +170,7 @@
     background: rgba(255, 255, 255, 0.78);
 }
 
-/* =========================
-   LEGAL DOCUMENT
-   ========================= */
+
 
 .legal-document {
     overflow: hidden;
@@ -270,9 +255,7 @@
     color: var(--color-heading);
 }
 
-/* =========================
-   DISCLAIMER BOX
-   ========================= */
+
 
 .legal-disclaimer-box {
     margin-top: 28px;
@@ -301,9 +284,7 @@
     color: var(--color-muted);
 }
 
-/* =========================
-   LEGAL CTA
-   ========================= */
+
 
 .legal-cta-shell {
     position: relative;
@@ -356,9 +337,7 @@
     align-self: end;
 }
 
-/* =========================
-   PAGE MICRO DIFFERENCES
-   ========================= */
+
 
 .privacy-policy-page .legal-hero-shell {
     border-radius: 42px 42px 22px 42px;
@@ -372,9 +351,6 @@
     border-radius: 42px 22px 42px 42px;
 }
 
-/* =========================
-   RESPONSIVE
-   ========================= */
 
 @media (max-width: 1100px) {
     .legal-layout {

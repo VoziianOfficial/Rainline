@@ -1,13 +1,6 @@
 "use strict";
 
-/* ==========================================================
-   RAINLINE — LEGAL PAGES SCRIPT
-   File: /js/legal.js
-   Used on:
-   privacy-policy.html
-   cookie-policy.html
-   terms-of-service.html
-   ========================================================== */
+
 
 (function () {
     document.addEventListener("DOMContentLoaded", initLegalPage);
@@ -19,9 +12,7 @@
         initLegalDocumentMotion();
     }
 
-    /* ===============================
-       SIDEBAR ACTIVE SECTION
-       =============================== */
+
 
     function initLegalSidebarSpy() {
         const links = Array.from(document.querySelectorAll(".legal-sidebar-card a"));
@@ -77,9 +68,7 @@
         sections.forEach((section) => observer.observe(section));
     }
 
-    /* ===============================
-       SMOOTH INTERNAL LINKS
-       =============================== */
+
 
     function initLegalSmoothLinks() {
         const links = document.querySelectorAll(".legal-sidebar-card a[href^='#']");
@@ -103,9 +92,7 @@
         });
     }
 
-    /* ===============================
-       CTA MOTION
-       =============================== */
+
 
     function initLegalCtaMotion() {
         const cta = document.querySelector(".legal-cta-shell");
@@ -144,9 +131,7 @@
         });
     }
 
-    /* ===============================
-       DOCUMENT MICRO MOTION
-       =============================== */
+
 
     function initLegalDocumentMotion() {
         const blocks = document.querySelectorAll(".legal-block, .legal-disclaimer-box");

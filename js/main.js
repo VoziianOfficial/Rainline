@@ -1,14 +1,6 @@
 "use strict";
 
-/* ==========================================================
-   RAINLINE — MAIN GLOBAL SCRIPT
-   File: /js/main.js
 
-   Load order:
-   1. /js/config.js
-   2. /js/main.js
-   3. page-specific script
-   ========================================================== */
 
 (function () {
     const config = window.SITE_CONFIG;
@@ -65,9 +57,7 @@
         preventHorizontalScroll();
     }
 
-    /* ===============================
-       HELPERS
-       =============================== */
+
 
     function qs(selector, parent = document) {
         return parent.querySelector(selector);
@@ -121,9 +111,7 @@
         }
     }
 
-    /* ===============================
-       LOGO
-       =============================== */
+
 
     function getLogoMarkup() {
         const brandName = config.brand?.shortName || config.companyName;
@@ -163,9 +151,7 @@
     `;
     }
 
-    /* ===============================
-       HEADER RENDER
-       =============================== */
+
 
     function renderHeader() {
         const existingHeader = qs(".site-header");
@@ -290,9 +276,7 @@
         window.addEventListener("resize", updateOffset, { passive: true });
     }
 
-    /* ===============================
-       MOBILE MENU RENDER
-       =============================== */
+
 
     function renderMobileMenu() {
         const existingMenu = qs("#mobileMenu");
@@ -360,9 +344,7 @@
         document.body.append(menu);
     }
 
-    /* ===============================
-       FOOTER RENDER
-       =============================== */
+
 
     function renderFooter() {
         const existingFooter = qs(".site-footer");
@@ -470,9 +452,7 @@
         }
     }
 
-    /* ===============================
-       POLICY BANNER RENDER
-       =============================== */
+
 
     function renderPolicyBanner() {
         const existingBanner = qs(".policy-banner");
@@ -526,9 +506,7 @@
         }
     }
 
-    /* ===============================
-       CONFIG VALUE INJECTION
-       =============================== */
+
 
     function injectConfigValues() {
         qsa(selectors.companyName).forEach((element) => {
@@ -641,9 +619,7 @@
         roots.forEach(replaceInRoot);
     }
 
-    /* ===============================
-       ACTIVE NAV
-       =============================== */
+
 
     function setActiveNavigation() {
         const isServiceDetailPage = config.services.some((service) => isCurrentPage(service.href));
@@ -658,9 +634,7 @@
         });
     }
 
-    /* ===============================
-       HEADER SCROLL
-       =============================== */
+ 
 
     function initHeaderScroll() {
         const header = qs("[data-header]");
@@ -677,9 +651,7 @@
         window.addEventListener("scroll", updateHeader, { passive: true });
     }
 
-    /* ===============================
-       MOBILE MENU
-       =============================== */
+
 
     function initMobileMenu() {
         const toggle = qs("[data-menu-toggle]");
@@ -774,9 +746,7 @@
         });
     }
 
-    /* ===============================
-       POLICY BANNER
-       =============================== */
+
 
     function initPolicyBanner() {
         const banner = qs("[data-policy-banner-box]");
@@ -805,9 +775,7 @@
         });
     }
 
-    /* ===============================
-       FAQ ACCORDIONS
-       =============================== */
+
 
     function initFaqAccordions() {
         const faqMounts = qsa(selectors.faqMount);
@@ -915,9 +883,7 @@
         document.head.append(script);
     }
 
-    /* ===============================
-       SERVICE CARDS
-       =============================== */
+
 
     function initServiceCards() {
         const mounts = qsa(selectors.serviceCardsMount);
@@ -958,9 +924,7 @@
         refreshIcons();
     }
 
-    /* ===============================
-       FORM VALIDATION
-       =============================== */
+
 
     function initFormValidation() {
         qsa("[data-form]").forEach((form) => {
@@ -1001,9 +965,6 @@
         });
     }
 
-    /* ===============================
-       REVEAL ANIMATIONS
-       =============================== */
 
     function initRevealAnimations() {
         const elements = qsa(".reveal-up, .reveal-fade, .reveal-line");
@@ -1038,9 +999,7 @@
         });
     }
 
-    /* ===============================
-       SCROLL LINE MOTION (SUBTLE)
-       =============================== */
+ 
 
     function initScrollLineMotion() {
         if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
@@ -1083,9 +1042,7 @@
         window.addEventListener("resize", requestUpdate, { passive: true });
     }
 
-    /* ===============================
-       EXTERNAL LIBRARIES
-       =============================== */
+
 
     function initExternalLibraries() {
         refreshIcons();
@@ -1137,9 +1094,7 @@
         });
     }
 
-    /* ===============================
-       HORIZONTAL SCROLL PROTECTION
-       =============================== */
+ 
 
     function preventHorizontalScroll() {
         document.documentElement.classList.add("no-horizontal-scroll");

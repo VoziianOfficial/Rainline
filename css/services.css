@@ -1,12 +1,4 @@
-/* ==========================================================
-   RAINLINE — SERVICES PAGE
-   File: /css/services.css
-   ========================================================== */
 
-/* ==========================================================
-   SERVICES HERO — PREMIUM FULL BACKGROUND
-   вставить в самый конец css/services.css
-   ========================================================== */
 
 .services-page .services-hero.section {
     position: relative;
@@ -214,7 +206,7 @@
     line-height: 1;
 }
 
-/* RESPONSIVE */
+
 
 @media (max-width: 900px) {
     .services-hero-pills {
@@ -308,9 +300,7 @@
         grid-template-columns: 1fr;
     }
 }
-/* =========================
-   SERVICE CATEGORIES
-   ========================= */
+
 
 .services-categories {
     margin-top: clamp(10px, 1.6vw, 20px);
@@ -491,9 +481,7 @@
     height: 18px;
 }
 
-/* =========================
-   COMPARE SECTION
-   ========================= */
+
 
 .services-compare-shell {
     position: relative;
@@ -587,9 +575,7 @@
     color: var(--color-muted);
 }
 
-/* =========================
-   PROVIDER QUESTIONS
-   ========================= */
+
 
 .services-questions {
     overflow: hidden;
@@ -712,9 +698,7 @@
     color: var(--color-text);
 }
 
-/* =========================
-   CTA
-   ========================= */
+
 
 .services-cta-shell {
     position: relative;
@@ -781,9 +765,7 @@
     background: var(--color-white);
 }
 
-/* =========================
-   FAQ LOCAL TWEAKS
-   ========================= */
+
 
 .services-faq .faq-shell {
     display: grid;
@@ -803,9 +785,7 @@
     color: var(--color-muted);
 }
 
-/* =========================
-   RESPONSIVE
-   ========================= */
+
 
 @media (max-width: 1180px) {
     .services-hero-shell {
@@ -840,7 +820,7 @@
     }
 }
 
-/* tablet: keep desktop layout but more compact */
+
 @media (max-width: 1180px) and (min-width: 761px) {
     .services-questions-panel {
         grid-template-columns: minmax(380px, 1.05fr) minmax(0, 0.95fr);
@@ -1056,9 +1036,7 @@
     }
 }
 
-/* =========================
-   MOBILE DRAG STATE
-   ========================= */
+
 
 @media (max-width: 760px) {
     .services-category-grid {
@@ -1070,10 +1048,7 @@
     }
 }
 
-/* ==========================================================
-   SERVICES COMPARE — RAINFLOW PATH
-   Alternative premium layout
-   ========================================================== */
+
 
 .services-page .services-compare {
     overflow: hidden;
@@ -1126,7 +1101,7 @@
     color: var(--color-muted);
 }
 
-/* path */
+
 
 .services-rainflow-path {
     position: relative;
@@ -1287,7 +1262,6 @@
     color: var(--color-muted);
 }
 
-/* footer note */
 
 .services-rainflow-footer {
     position: relative;
@@ -1319,7 +1293,7 @@
     line-height: 1.45;
 }
 
-/* responsive */
+
 
 @media (max-width: 980px) {
     .services-rainflow-path {
@@ -1441,10 +1415,7 @@
     }
 }
 
-/* ==========================================================
-   SERVICES FAQ — DESK / LEDGER LAYOUT
-   different from home FAQ
-   ========================================================== */
+
 
 .services-page .services-faq {
     overflow: hidden;
@@ -1532,7 +1503,7 @@
     margin-top: 22px;
 }
 
-/* ledger */
+
 
 .services-faq-ledger {
     display: grid;
@@ -1618,7 +1589,7 @@
     line-height: 1.65;
 }
 
-/* remove old faq shell behavior if still exists */
+
 .services-page .services-faq .faq-shell,
 .services-page .services-faq .services-faq-shell {
     display: block;
@@ -1679,9 +1650,6 @@
 }
 
 
-/* ==========================================================
-   SERVICES FAQ — EDITORIAL LINES, NO CARDS
-   ========================================================== */
 
 .services-page .services-faq {
     overflow: hidden;
@@ -1805,7 +1773,7 @@
     line-height: 1.5;
 }
 
-/* responsive */
+
 
 @media (max-width: 980px) {
     .services-faq-lines::before {
@@ -1860,9 +1828,7 @@
         margin-top: 18px;
     }
 }
-/* ==========================================================
-   FIX — SERVICES FAQ HEAD WIDTH
-   ========================================================== */
+
 
 .services-faq .container-wide {
     width: min(calc(100% - 32px), 1120px);

@@ -5,14 +5,7 @@
 @import url("./service-page.css");
 @import url("./legal.css");
 
-/* ==========================================================
-   RAINLINE — GLOBAL DESIGN SYSTEM
-   Main file: /css/style.css
-   ========================================================== */
 
-/* =========================
-   CSS VARIABLES
-   ========================= */
 
 :root {
     --color-bg: #eef4f5;
@@ -64,9 +57,7 @@
     --section-gap-sm: clamp(26px, 4vw, 52px);
 }
 
-/* =========================
-   RESET
-   ========================= */
+
 
 *,
 *::before,
@@ -135,7 +126,7 @@ a {
     text-decoration: none;
 }
 
-/* Global icon hover behavior */
+
 :where(i[data-lucide], .lucide) {
     color: inherit;
     stroke: currentColor;
@@ -178,9 +169,7 @@ h6 {
     background: var(--color-accent);
 }
 
-/* =========================
-   ACCESSIBILITY
-   ========================= */
+
 
 .skip-link {
     position: fixed;
@@ -206,9 +195,7 @@ h6 {
     border-radius: 10px;
 }
 
-/* =========================
-   TYPOGRAPHY
-   ========================= */
+
 
 h1,
 h2,
@@ -309,9 +296,7 @@ p {
     color: var(--color-muted);
 }
 
-/* =========================
-   LAYOUT HELPERS
-   ========================= */
+
 
 .page {
     position: relative;
@@ -393,9 +378,7 @@ p {
     box-shadow: var(--shadow-soft);
 }
 
-/* =========================
-   BUTTONS
-   ========================= */
+
 
 .btn,
 .button,
@@ -487,9 +470,6 @@ button[type="submit"] i {
     background: var(--color-accent-hover);
 }
 
-/* =========================
-   HEADER
-   ========================= */
 
 .site-header {
     position: fixed;
@@ -821,9 +801,7 @@ body.has-fixed-header {
     transform: rotate(-45deg);
 }
 
-/* =========================
-   MOBILE MENU
-   ========================= */
+
 
 .mobile-menu {
     position: fixed;
@@ -996,9 +974,7 @@ body.has-fixed-header {
     color: var(--color-accent);
 }
 
-/* =========================
-   IMAGE / MEDIA BASE
-   ========================= */
+
 
 .image-frame {
     position: relative;
@@ -1041,9 +1017,7 @@ body.has-fixed-header {
     clip-path: polygon(0 0, 100% 0, 100% calc(100% - 34px), calc(100% - 34px) 100%, 0 100%);
 }
 
-/* =========================
-   CARDS
-   ========================= */
+
 
 .info-card {
     position: relative;
@@ -1123,9 +1097,7 @@ body.has-fixed-header {
     color: var(--color-muted);
 }
 
-/* =========================
-   FORMS
-   ========================= */
+
 
 .form-card {
     position: relative;
@@ -1300,9 +1272,7 @@ body.has-fixed-header {
     background: #f4dddd;
 }
 
-/* =========================
-   FAQ / ACCORDION BASE
-   ========================= */
+
 
 .faq-list {
     display: grid;
@@ -1367,9 +1337,7 @@ body.has-fixed-header {
     color: var(--color-muted);
 }
 
-/* =========================
-   SWIPER BASE
-   ========================= */
+
 
 .swiper {
     width: 100%;
@@ -1409,9 +1377,7 @@ body.has-fixed-header {
     background: var(--color-accent);
 }
 
-/* =========================
-   MAP CARD BASE
-   ========================= */
+
 
 .map-card {
     position: relative;
@@ -1472,9 +1438,7 @@ body.has-fixed-header {
     color: rgba(247, 250, 250, 0.76);
 }
 
-/* =========================
-   FOOTER
-   ========================= */
+
 
 .site-footer {
     position: relative;
@@ -1608,9 +1572,7 @@ body.has-fixed-header {
     color: var(--color-white);
 }
 
-/* =========================
-   COOKIE / POLICY BANNER
-   ========================= */
+
 
 .policy-banner {
     position: fixed;
@@ -1690,9 +1652,6 @@ body.has-fixed-header {
     background: var(--color-surface-soft);
 }
 
-/* =========================
-   SCROLL / MOTION EFFECTS
-   ========================= */
 
 .reveal-up,
 .reveal-line,
@@ -1760,9 +1719,7 @@ body.has-fixed-header {
     }
 }
 
-/* =========================
-   UTILITY CLASSES
-   ========================= */
+
 
 .desktop-only {
     display: block;
@@ -1793,9 +1750,7 @@ body.has-fixed-header {
     background: linear-gradient(90deg, transparent, rgba(79, 117, 128, 0.24), transparent);
 }
 
-/* =========================
-   RESPONSIVE
-   ========================= */
+
 
 @media (max-width: 1100px) {
     .desktop-nav {
@@ -1979,9 +1934,7 @@ body.has-fixed-header {
     }
 }
 
-/* =========================
-   REDUCED MOTION
-   ========================= */
+
 
 @media (prefers-reduced-motion: reduce) {
 
@@ -1996,16 +1949,13 @@ body.has-fixed-header {
 }
 
 
-/* ==========================================================
-   FIX — DESKTOP SERVICES DROPDOWN DOES NOT CLOSE TOO FAST
-   убираем разрыв между пунктом Services и выпадающим меню
-   ========================================================== */
+
 
 .desktop-nav-item-services {
     position: relative;
 }
 
-/* невидимый мостик между Services и dropdown */
+
 .desktop-nav-item-services::after {
     content: "";
     position: absolute;
@@ -2022,7 +1972,6 @@ body.has-fixed-header {
     z-index: 40 !important;
 }
 
-/* чтобы меню спокойно оставалось открытым при наведении */
 .desktop-nav-item-services:hover .desktop-subnav,
 .desktop-nav-item-services:focus-within .desktop-subnav,
 .desktop-subnav:hover {
@@ -2032,7 +1981,6 @@ body.has-fixed-header {
     transform: translateX(-50%) translateY(0) !important;
 }
 
-/* чуть мягче анимация */
 .desktop-subnav {
     transition:
         opacity 220ms ease,

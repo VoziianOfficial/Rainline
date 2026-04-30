@@ -1,11 +1,4 @@
-/* ==========================================================
-   RAINLINE — HOME PAGE
-   File: /css/home.css
-   ========================================================== */
 
-/* =========================
-   HOME HERO — CENTERED BACKGROUND
-   ========================= */
 
 .home-hero {
     position: relative;
@@ -137,7 +130,7 @@
     backdrop-filter: blur(12px);
 }
 
-/* RESPONSIVE */
+
 
 @media (max-width: 760px) {
     .home-hero {
@@ -196,9 +189,7 @@
     }
 }
 
-/* =========================
-   INTRO STRIP
-   ========================= */
+
 
 .home-intro-strip {
     margin-top: -12px;
@@ -279,9 +270,7 @@
     color: var(--color-heading);
 }
 
-/* =========================
-   SECTION HEAD
-   ========================= */
+
 
 .section-split-head {
     display: grid;
@@ -295,9 +284,7 @@
     margin-top: 0;
 }
 
-/* =========================
-   SERVICE CARDS
-   ========================= */
+
 
 .home-services {
     overflow: hidden;
@@ -488,9 +475,6 @@
     height: 18px;
 }
 
-/* =========================
-   PROCESS
-   ========================= */
 
 .process-panel {
     position: relative;
@@ -600,9 +584,7 @@
     color: var(--color-muted);
 }
 
-/* =========================
-   EDITORIAL PHOTO SECTION
-   ========================= */
+
 
 .editorial-grid {
     display: grid;
@@ -715,9 +697,7 @@
     font-weight: 800;
 }
 
-/* =========================
-   GALLERY SWIPER
-   ========================= */
+
 
 .home-gallery {
     overflow: hidden;
@@ -809,9 +789,7 @@
     bottom: 2px;
 }
 
-/* =========================
-   EVALUATE
-   ========================= */
+
 
 .evaluate-shell {
     display: grid;
@@ -832,9 +810,6 @@
     min-height: 250px;
 }
 
-/* =========================
-   CONTACT CTA
-   ========================= */
 
 .home-contact-shell {
     display: grid;
@@ -909,9 +884,7 @@
     background: rgba(255, 255, 255, 0.9);
 }
 
-/* =========================
-   FAQ
-   ========================= */
+
 
 .faq-shell {
     display: grid;
@@ -931,9 +904,7 @@
     color: var(--color-muted);
 }
 
-/* =========================
-   RESPONSIVE
-   ========================= */
+
 
 @media (max-width: 1180px) {
     .home-hero-shell {
@@ -1218,9 +1189,7 @@
     }
 }
 
-/* =========================
-   MOBILE SERVICE DRAG ROW
-   ========================= */
+
 
 @media (max-width: 760px) {
     .service-card-grid {
@@ -1248,10 +1217,6 @@
 }
 
 
-/* ==========================================================
-   FINAL FIX — COMPACT CENTERED HOME HERO
-   вставить в самый конец css/home.css
-   ========================================================== */
 
 .home-page .home-hero.section {
     min-height: clamp(560px, calc(100svh - var(--header-height) - 70px), 720px);
@@ -1335,15 +1300,11 @@
     }
 }
 
-/* Move hero background photo lower so the top/head is not cropped */
 .home-page .home-hero-bg img {
     object-position: center 20% !important;
 }
 
-/* ==========================================================
-   FINAL FIX — INTRO STRIP OVERLAP HERO
-   вставить в самый конец css/home.css
-   ========================================================== */
+
 
 .home-page .home-intro-strip.section-sm {
     position: relative;
@@ -1361,10 +1322,7 @@
     box-shadow: 0 24px 70px rgba(23, 40, 46, 0.16);
 }
 
-/* ==========================================================
-   FINAL FIX — INTRO STRIP OVERLAP HERO
-   вставить в самый конец css/home.css
-   ========================================================== */
+
 
 .home-page .home-intro-strip.section-sm {
     position: relative;
@@ -1394,9 +1352,7 @@
     }
 }
 
-/* ==========================================================
-   HOME FAQ — FULL TOP INTRO + 2 COLUMNS
-   ========================================================== */
+
 
 .home-faq .faq-shell {
     display: block;

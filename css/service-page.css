@@ -1,16 +1,4 @@
-/* ==========================================================
-   RAINLINE — SERVICE DETAIL PAGES
-   File: /css/service-page.css
-   Used on:
-   gutter-installation.html
-   gutter-replacement.html
-   gutter-repair.html
-   gutter-cleaning.html
-   ========================================================== */
 
-/* =========================
-   SERVICE HERO
-   ========================= */
 
 .service-hero {
     padding: clamp(20px, 3vw, 36px) 0 var(--section-gap);
@@ -104,9 +92,7 @@
     color: var(--color-muted);
 }
 
-/* =========================
-   HERO MEDIA
-   ========================= */
+
 
 .service-hero-media {
     position: relative;
@@ -192,9 +178,7 @@
     line-height: 1.35;
 }
 
-/* =========================
-   OVERVIEW
-   ========================= */
+
 
 .service-overview-panel {
     position: relative;
@@ -287,9 +271,6 @@
     color: var(--color-muted);
 }
 
-/* =========================
-   FACTORS
-   ========================= */
 
 .service-factors {
     overflow: hidden;
@@ -305,9 +286,7 @@
     min-height: 270px;
 }
 
-/* =========================
-   PHOTO SECTION
-   ========================= */
+
 
 .service-photo-section {
     overflow: hidden;
@@ -434,9 +413,7 @@
     color: var(--color-text);
 }
 
-/* =========================
-   SERVICE CTA
-   ========================= */
+
 
 .service-cta-shell {
     position: relative;
@@ -527,9 +504,7 @@
     background: var(--color-white);
 }
 
-/* =========================
-   SERVICE FAQ
-   ========================= */
+
 
 .service-faq .faq-shell {
     display: grid;
@@ -549,9 +524,7 @@
     color: var(--color-muted);
 }
 
-/* =========================
-   PAGE-SPECIFIC MICRO ACCENTS
-   ========================= */
+
 
 .gutter-installation-page .service-hero-badge,
 .gutter-installation-page .service-photo-label {
@@ -573,9 +546,7 @@
     background: rgba(28, 72, 79, 0.66);
 }
 
-/* =========================
-   RESPONSIVE
-   ========================= */
+
 
 @media (max-width: 1180px) {
     .service-hero-shell {
@@ -610,7 +581,6 @@
     }
 }
 
-/* tablet: keep desktop photo section layout, but more compact */
 @media (max-width: 1180px) and (min-width: 761px) {
     .service-photo-card {
         grid-template-columns: minmax(380px, 1.05fr) minmax(0, 0.95fr);
@@ -796,10 +766,7 @@
     }
 }
 
-/* ==========================================================
-   SERVICE HERO — CINEMATIC FULL PHOTO
-   дорогой формат без карточек и без повторов
-   ========================================================== */
+
 
 .service-cinematic-hero {
     position: relative;
@@ -869,7 +836,7 @@
     padding: clamp(58px, 8vw, 96px) 0 clamp(20px, 3vw, 34px);
 }
 
-/* side label */
+
 
 .service-cinematic-side {
     grid-row: 1 / 3;
@@ -902,7 +869,7 @@
     color: rgba(247, 250, 250, 0.92);
 }
 
-/* center content */
+
 
 .service-cinematic-content {
     align-self: center;
@@ -975,7 +942,7 @@
     background: #ffffff;
 }
 
-/* bottom information */
+
 
 .service-cinematic-bottom {
     grid-column: 2;
@@ -1041,8 +1008,6 @@
     font-weight: 750;
     line-height: 1.58;
 }
-
-/* responsive */
 
 @media (max-width: 980px) {
     .service-cinematic-layout {
@@ -1126,10 +1091,7 @@
     }
 }
 
-/* ==========================================================
-   SERVICE HERO — REPAIR VARIATION
-   немного отличается от installation
-   ========================================================== */
+
 
 .service-cinematic-hero-repair .service-cinematic-bg img {
     object-position: center 42%;
@@ -1163,7 +1125,6 @@
     justify-content: flex-start;
 }
 
-/* small extra line for repair */
 .service-cinematic-mini-note {
     display: inline-flex;
     align-items: center;
@@ -1186,7 +1147,7 @@
     line-height: 1.45;
 }
 
-/* bottom repair line */
+
 .service-cinematic-bottom-repair {
     grid-template-columns: minmax(0, 1fr) minmax(340px, 0.58fr);
 }
@@ -1200,7 +1161,6 @@
     padding: 6px 0;
 }
 
-/* subtle hover */
 .service-cinematic-hero-repair:hover .service-cinematic-overlay {
     background:
         linear-gradient(180deg,
@@ -1247,10 +1207,6 @@
 }
 
 
-/* ==========================================================
-   SERVICE HERO — KEEP REPLACEMENT CONSISTENT
-   убирает слишком сильные отличия replacement hero
-   ========================================================== */
 
 .service-cinematic-hero-replacement .service-cinematic-bg img {
     object-position: center 40%;
@@ -1294,10 +1250,7 @@
     }
 }
 
-/* ==========================================================
-   SERVICE OVERVIEW — CLEANING FLOW DIAGNOSTIC
-   необычная секция без карточек и без цифр
-   ========================================================== */
+
 
 .service-flow-overview {
     position: relative;
@@ -1356,7 +1309,7 @@
     width: min(calc(100% - 32px), var(--container-wide));
 }
 
-/* top */
+
 
 .flow-overview-head {
     max-width: 980px;
@@ -1379,7 +1332,7 @@
     color: var(--color-muted);
 }
 
-/* main layout */
+
 
 .flow-overview-layout {
     display: grid;
@@ -1428,7 +1381,7 @@
     color: var(--color-muted);
 }
 
-/* right flow track */
+
 
 .flow-overview-track {
     position: relative;
@@ -1517,7 +1470,6 @@
     color: var(--color-muted);
 }
 
-/* responsive */
 
 @media (max-width: 980px) {
     .flow-overview-head {
@@ -1580,10 +1532,6 @@
     }
 }
 
-/* ==========================================================
-   CLEANING SNAPSHOT — COMPACT OVERVIEW SECTION
-   компактно, интересно, без обычных карточек и цифр
-   ========================================================== */
 
 .cleaning-snapshot {
     position: relative;
@@ -1701,7 +1649,7 @@
     line-height: 1.25;
 }
 
-/* content */
+
 
 .cleaning-snapshot-content {
     max-width: 720px;
@@ -1722,7 +1670,7 @@
     color: var(--color-muted);
 }
 
-/* flow list */
+
 
 .cleaning-snapshot-flow {
     position: relative;
@@ -1801,7 +1749,7 @@
     color: var(--color-muted);
 }
 
-/* note */
+
 
 .cleaning-snapshot-note {
     display: flex;
@@ -1826,7 +1774,6 @@
     line-height: 1.58;
 }
 
-/* responsive */
 
 @media (max-width: 980px) {
     .cleaning-snapshot-layout {
@@ -1879,10 +1826,7 @@
     }
 }
 
-/* ==========================================================
-   CLEANING SNAPSHOT — TALL IMAGE FIX
-   фото почти на всю высоту секции
-   ========================================================== */
+
 
 .cleaning-snapshot-layout {
     align-items: stretch;
@@ -1901,13 +1845,10 @@
     object-fit: cover;
     object-position: center;
 }
-
-/* правый контент аккуратно центрируем по высоте фото */
 .cleaning-snapshot-content {
     align-self: center;
 }
 
-/* если хочешь, чтобы фото было ещё более вытянутое и premium */
 @media (min-width: 981px) {
     .cleaning-snapshot-layout {
         grid-template-columns: minmax(360px, 0.78fr) minmax(0, 1fr);
@@ -1922,7 +1863,6 @@
     }
 }
 
-/* планшет */
 @media (max-width: 980px) {
     .cleaning-snapshot-media {
         max-width: 100%;
@@ -1934,7 +1874,7 @@
     }
 }
 
-/* мобильная */
+
 @media (max-width: 640px) {
     .cleaning-snapshot-media {
         min-height: 0;
@@ -1948,10 +1888,6 @@
     }
 }
 
-/* ==========================================================
-   CLEANING SNAPSHOT — MORE SPACE FOR RIGHT SIDE
-   расширяем секцию, не уменьшая фото
-   ========================================================== */
 
 .cleaning-snapshot .container-wide {
     width: min(calc(100% - 32px), 1320px);
@@ -1983,7 +1919,7 @@
     max-width: 640px;
 }
 
-/* tablet: keep desktop-like 2-column layout, but more compact */
+
 @media (max-width: 980px) and (min-width: 761px) {
     .cleaning-snapshot {
         padding: 18px 0 26px !important;
@@ -2008,7 +1944,6 @@
     }
 }
 
-/* mobile: stack */
 @media (max-width: 760px) {
     .cleaning-snapshot .container-wide {
         width: min(calc(100% - 32px), 1120px);
@@ -2033,10 +1968,7 @@
     }
 }
 
-/* ==========================================================
-   REPLACEMENT GAUGE — COMPACT PREMIUM OVERVIEW
-   без карточек, без цифр, без большого фото-блока
-   ========================================================== */
+
 
 .replacement-gauge {
     position: relative;
@@ -2073,7 +2005,7 @@
     color: var(--color-muted);
 }
 
-/* gauge line */
+
 
 .replacement-gauge-line {
     position: relative;
@@ -2193,7 +2125,7 @@
     color: var(--color-muted);
 }
 
-/* note */
+
 
 .replacement-gauge-note {
     display: flex;
@@ -2222,7 +2154,7 @@
     line-height: 1.58;
 }
 
-/* responsive */
+
 
 @media (max-width: 820px) {
     .replacement-gauge-head {
@@ -2276,7 +2208,6 @@
     }
 }
 
-/* tablets: use the mobile (stacked) layout, but tighter */
 @media (max-width: 1180px) and (min-width: 641px) {
     .replacement-gauge {
         padding: 18px 0 18px !important;
@@ -2352,7 +2283,7 @@
     }
 }
 
-/* mini tablets: same stacked layout, even more compact */
+
 @media (max-width: 820px) and (min-width: 641px) {
     .replacement-gauge {
         padding: 16px 0 16px !important;
@@ -2430,10 +2361,7 @@
     }
 }
 
-/* ==========================================================
-   REPAIR ISSUE MAP — COMPACT VISUAL OVERVIEW
-   полностью новый формат без карточек, цифр и кривых строк
-   ========================================================== */
+
 
 .repair-issue-map {
     position: relative;
@@ -2486,7 +2414,7 @@
     align-items: center;
 }
 
-/* left content */
+
 
 .repair-issue-map-copy {
     max-width: 650px;
@@ -2532,7 +2460,7 @@
     color: var(--color-muted);
 }
 
-/* visual map */
+
 
 .repair-issue-map-visual {
     position: relative;
@@ -2573,7 +2501,7 @@
         radial-gradient(circle at 22% 18%, rgba(212, 227, 230, 0.22), transparent 34%);
 }
 
-/* caption */
+
 
 .repair-map-caption {
     position: absolute;
@@ -2606,7 +2534,7 @@
     line-height: 1.25;
 }
 
-/* issue points */
+
 
 .repair-map-point {
     position: absolute;
@@ -2692,7 +2620,7 @@
     transform: translateY(-50%);
 }
 
-/* responsive */
+
 
 @media (max-width: 980px) {
     .repair-issue-map-layout {
@@ -2766,10 +2694,7 @@
         bottom: 22px;
     }
 }
-/* ==========================================================
-   REPLACEMENT GAUGE — TABLET SAME AS DESKTOP, COMPACT
-   вставить самым последним в service-page.css
-   ========================================================== */
+
 
 @media (max-width: 1180px) and (min-width: 641px) {
     .replacement-gauge {
@@ -2869,7 +2794,6 @@
     }
 }
 
-/* mini tablet — тот же desktop format, просто ещё компактнее */
 @media (max-width: 820px) and (min-width: 641px) {
     .replacement-gauge .container-wide {
         width: min(calc(100% - 28px), 860px) !important;
@@ -2917,10 +2841,6 @@
     }
 }
 
-/* ==========================================================
-   MOBILE — HIDE SERVICE PHOTO SECTION
-   скрываем секцию service-photo-section на мобилке
-   ========================================================== */
 
 @media (max-width: 760px) {
     .service-photo-section {
@@ -2928,10 +2848,7 @@
     }
 }
 
-/* ==========================================================
-   REPLACEMENT GAUGE — MOBILE ICON RIGHT CORNER FIX
-   иконки справа, текст компактнее
-   ========================================================== */
+
 
 @media (max-width: 640px) {
     .replacement-gauge {
@@ -2970,7 +2887,7 @@
         background: rgba(255, 255, 255, 0.94) !important;
     }
 
-    /* иконка справа в углу */
+  
     .replacement-gauge-line article>i {
         position: absolute !important;
         top: 12px !important;
@@ -3005,7 +2922,7 @@
         color: var(--color-heading) !important;
     }
 
-    /* compact text */
+  
     .replacement-gauge-line span {
         display: block !important;
         max-width: 31ch !important;
@@ -3027,10 +2944,7 @@
     }
 }
 
-/* ==========================================================
-   REPLACEMENT GAUGE — MOBILE ICON RIGHT FIX FOR LUCIDE SVG
-   потому что lucide заменяет i на svg
-   ========================================================== */
+
 
 @media (max-width: 640px) {
     .replacement-gauge-line article {
@@ -3043,7 +2957,7 @@
         text-align: left !important;
     }
 
-    /* вот главная правка: target и i, и svg */
+   
     .replacement-gauge-line article>i,
     .replacement-gauge-line article>svg,
     .replacement-gauge-line article>.lucide {

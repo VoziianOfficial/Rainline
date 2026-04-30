@@ -1,9 +1,6 @@
 "use strict";
 
-/* ==========================================================
-   RAINLINE — ABOUT PAGE SCRIPT
-   File: /js/about.js
-   ========================================================== */
+
 
 (function () {
     document.addEventListener("DOMContentLoaded", initAboutPage);
@@ -14,9 +11,6 @@
         initAboutListMotion();
     }
 
-    /* ===============================
-       ABOUT HERO MOTION
-       =============================== */
 
     function initAboutHeroMotion() {
         const hero = document.querySelector(".about-hero");
@@ -89,9 +83,7 @@
         });
     }
 
-    /* ===============================
-       MODEL SECTION MOTION
-       =============================== */
+
 
     function initAboutModelMotion() {
         const section = document.querySelector(".about-model");
@@ -152,9 +144,7 @@
         });
     }
 
-    /* ===============================
-       LIST MICRO MOTION
-       =============================== */
+    
 
     function initAboutListMotion() {
         const items = document.querySelectorAll(

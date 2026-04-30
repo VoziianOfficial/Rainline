@@ -1,19 +1,5 @@
 "use strict";
 
-/*
-|--------------------------------------------------------------------------
-| Rainline Global Site Configuration
-|--------------------------------------------------------------------------
-| This file stores shared company, contact, navigation, service, legal,
-| and footer data. Values from this file will be injected into the website
-| by /js/main.js using data attributes.
-|
-| Load order in HTML:
-| 1. /js/config.js
-| 2. /js/main.js
-| 3. page-specific JS file
-|--------------------------------------------------------------------------
-*/
 
 const companyName = "Rainline";
 
@@ -233,9 +219,9 @@ window.SITE_CONFIG = {
     forms: {
         contactFormTitle: "Start a gutter provider matching request",
         contactFormText:
-            `Share a few details about your gutter project. ${companyName} may help connect you with independent local providers based on your request and service area.`,
+            "Share a few details about your gutter project. Rainline may help connect you with independent local providers based on your request and service area.",
         consentText:
-            `I agree to be contacted about my gutter request and understand that ${companyName} is a matching platform, not a direct contractor.`,
+            "I agree to be contacted about my gutter request and understand that Rainline is a matching platform, not a direct contractor.",
         successMessage:
             "Thank you. Your request has been prepared. A matching flow would continue from here.",
         errorMessage:
@@ -246,7 +232,7 @@ window.SITE_CONFIG = {
         storageKey: "rainline_policy_choice",
         title: "Privacy & site policies",
         text:
-            `${companyName} uses essential site functionality and policy notices to support a clear provider-matching experience. Please review the legal pages before continuing.`,
+            "Rainline uses essential site functionality and policy notices to support a clear provider-matching experience. Please review the legal pages before continuing.",
         acceptLabel: "Accept",
         declineLabel: "Decline",
         links: [
@@ -267,9 +253,9 @@ window.SITE_CONFIG = {
 
     faq: [
         {
-            question: `Is ${companyName} a gutter contractor?`,
+            question: "Is Rainline a gutter contractor?",
             answer:
-                `No. ${companyName} is not a gutter contractor and does not perform gutter installation, replacement, repair, cleaning, or maintenance directly. ${companyName} helps homeowners connect with independent local providers.`
+                "No. Rainline is not a gutter contractor and does not perform gutter installation, replacement, repair, cleaning, or maintenance directly. Rainline helps homeowners connect with independent local providers."
         },
         {
             question: "How do I compare local gutter providers?",
@@ -289,7 +275,7 @@ window.SITE_CONFIG = {
         {
             question: "How do I know if a provider serves my area?",
             answer:
-                `Provider availability can vary by ZIP code, city, and project type. ${companyName} helps organize your request so relevant local provider options may be identified.`
+                "Provider availability can vary by ZIP code, city, and project type. Rainline helps organize your request so relevant local provider options may be identified."
         }
     ],
 
@@ -305,7 +291,7 @@ window.SITE_CONFIG = {
             {
                 label: "Platform model",
                 value: "Independent",
-                text: `${companyName} helps connect homeowners with local providers.`
+                text: "Rainline helps connect homeowners with local providers."
             },
             {
                 label: "User focus",

@@ -1,10 +1,6 @@
 "use strict";
 
-/* ==========================================================
-   RAINLINE — SERVICE DETAIL PAGE SCRIPT
-   File: /js/service-page.js
-   Used on all gutter service detail pages
-   ========================================================== */
+
 
 (function () {
     document.addEventListener("DOMContentLoaded", initServicePage);
@@ -16,9 +12,7 @@
         initServiceQuestionMotion();
     }
 
-    /* ===============================
-       HERO MOTION
-       =============================== */
+
 
     function initServiceHeroMotion() {
         const hero = document.querySelector(".service-hero");
@@ -93,9 +87,6 @@
         });
     }
 
-    /* ===============================
-       PHOTO SECTION MOTION
-       =============================== */
 
     function initServicePhotoMotion() {
         const section = document.querySelector(".service-photo-section");
@@ -158,9 +149,7 @@
         });
     }
 
-    /* ===============================
-       CARDS MOTION
-       =============================== */
+
 
     function initServiceCardsMotion() {
         const cards = document.querySelectorAll(
@@ -196,9 +185,7 @@
         });
     }
 
-    /* ===============================
-       QUESTION LIST MOTION
-       =============================== */
+
 
     function initServiceQuestionMotion() {
         const items = document.querySelectorAll(".service-question-list li");

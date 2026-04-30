@@ -1,9 +1,6 @@
 "use strict";
 
-/* ==========================================================
-   RAINLINE — HOME PAGE SCRIPT
-   File: /js/home.js
-   ========================================================== */
+
 
 (function () {
     document.addEventListener("DOMContentLoaded", initHomePage);
@@ -14,9 +11,7 @@
         initHomeServiceMobileSwiperFallback();
     }
 
-    /* ===============================
-       HOME GALLERY SWIPER
-       =============================== */
+
 
     function initHomeGallerySwiper() {
         const swiperElement = document.querySelector(".home-gallery-swiper");
@@ -85,9 +80,6 @@
         });
     }
 
-    /* ===============================
-       HERO SOFT PARALLAX
-       =============================== */
 
     function initHeroParallax() {
         const hero = document.querySelector(".home-hero");
@@ -159,9 +151,7 @@
         });
     }
 
-    /* ===============================
-       MOBILE SERVICE CARDS DRAG FEEL
-       =============================== */
+ 
 
     function initHomeServiceMobileSwiperFallback() {
         const serviceGrid = document.querySelector(".service-card-grid");

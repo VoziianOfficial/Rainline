@@ -1,9 +1,5 @@
 "use strict";
 
-/* ==========================================================
-   RAINLINE — SERVICES PAGE SCRIPT
-   File: /js/services.js
-   ========================================================== */
 
 (function () {
     document.addEventListener("DOMContentLoaded", initServicesPage);
@@ -14,9 +10,7 @@
         initQuestionPillsMotion();
     }
 
-    /* ===============================
-       HERO SOFT MOTION
-       =============================== */
+
 
     function initServicesHeroMotion() {
         const hero = document.querySelector(".services-hero");
@@ -89,9 +83,7 @@
         });
     }
 
-    /* ===============================
-       MOBILE SERVICE CARDS DRAG
-       =============================== */
+
 
     function initServicesCardsDrag() {
         const grid = document.querySelector(".services-category-grid");
@@ -143,9 +135,6 @@
         });
     }
 
-    /* ===============================
-       QUESTION PILLS MICRO MOTION
-       =============================== */
 
     function initQuestionPillsMotion() {
         const pills = document.querySelectorAll(".question-pill-list article");

@@ -1,9 +1,6 @@
 "use strict";
 
-/* ==========================================================
-   RAINLINE — CONTACT PAGE SCRIPT
-   File: /js/contact.js
-   ========================================================== */
+
 
 (function () {
     document.addEventListener("DOMContentLoaded", initContactPage);
@@ -37,9 +34,7 @@
         iframe.setAttribute("aria-label", `Map showing ${config.address.full}`);
     }
 
-    /* ===============================
-       HERO CARD MOTION
-       =============================== */
+    
 
     function initContactHeroMotion() {
         const hero = document.querySelector(".contact-hero");
@@ -102,9 +97,7 @@
         });
     }
 
-    /* ===============================
-       MAP MOTION
-       =============================== */
+
 
     function initContactMapMotion() {
         const section = document.querySelector(".contact-area");
@@ -171,9 +164,7 @@
         });
     }
 
-    /* ===============================
-       CONTACT BLOCKS MICRO MOTION
-       =============================== */
+  
 
     function initContactBlocksMotion() {
         const items = document.querySelectorAll(
