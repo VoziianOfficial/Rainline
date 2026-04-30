@@ -78,6 +78,7 @@ html {
     width: 100%;
     min-width: 320px;
     scroll-behavior: smooth;
+    scroll-padding-top: var(--header-offset, var(--header-height));
     -webkit-text-size-adjust: 100%;
 }
 
@@ -443,8 +444,10 @@ button[type="submit"] i {
    ========================= */
 
 .site-header {
-    position: sticky;
+    position: fixed;
     top: 0;
+    left: 0;
+    right: 0;
     z-index: 1000;
     width: 100%;
     border-bottom: 1px solid rgba(200, 214, 217, 0.48);
@@ -455,6 +458,10 @@ button[type="submit"] i {
         background var(--transition-base),
         border-color var(--transition-base),
         box-shadow var(--transition-base);
+}
+
+body.has-fixed-header {
+    padding-top: var(--header-offset, var(--header-height));
 }
 
 .site-header.is-scrolled {

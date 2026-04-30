@@ -49,6 +49,7 @@
         renderFooter();
         renderPolicyBanner();
 
+        syncFixedHeaderOffset();
         injectConfigValues();
         setActiveNavigation();
         initHeaderScroll();
@@ -230,6 +231,23 @@
         }
 
         renderMobileMenu();
+    }
+
+    function syncFixedHeaderOffset() {
+        const header = qs(".site-header");
+
+        if (!header) {
+            return;
+        }
+
+        document.body.classList.add("has-fixed-header");
+
+        const updateOffset = () => {
+            document.documentElement.style.setProperty("--header-offset", `${header.offsetHeight}px`);
+        };
+
+        updateOffset();
+        window.addEventListener("resize", updateOffset, { passive: true });
     }
 
     /* ===============================
