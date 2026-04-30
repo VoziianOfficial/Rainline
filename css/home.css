@@ -270,9 +270,12 @@
 
 .intro-strip-inner strong {
     display: block;
-    max-width: 220px;
+    max-width: none;
     font-size: 16px;
-    line-height: 1.28;
+    line-height: 1.2;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
     color: var(--color-heading);
 }
 
@@ -1311,5 +1314,59 @@
 
 /* Move hero background photo lower so the top/head is not cropped */
 .home-page .home-hero-bg img {
-    object-position: center 30% !important;
+    object-position: center 20% !important;
+}
+
+/* ==========================================================
+   FINAL FIX — INTRO STRIP OVERLAP HERO
+   вставить в самый конец css/home.css
+   ========================================================== */
+
+.home-page .home-intro-strip.section-sm {
+    position: relative;
+    z-index: 10;
+    margin-top: -54px !important;
+    padding-top: 0 !important;
+}
+
+.home-page .intro-strip-inner {
+    position: relative;
+    z-index: 2;
+    background: rgba(255, 255, 255, 0.82);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    box-shadow: 0 24px 70px rgba(23, 40, 46, 0.16);
+}
+
+/* ==========================================================
+   FINAL FIX — INTRO STRIP OVERLAP HERO
+   вставить в самый конец css/home.css
+   ========================================================== */
+
+.home-page .home-intro-strip.section-sm {
+    position: relative;
+    z-index: 10;
+    margin-top: -54px !important;
+    padding-top: 0 !important;
+}
+
+.home-page .intro-strip-inner {
+    position: relative;
+    z-index: 2;
+    background: rgba(255, 255, 255, 0.82);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    box-shadow: 0 24px 70px rgba(23, 40, 46, 0.16);
+}
+
+@media (max-width: 760px) {
+    .home-page .home-intro-strip.section-sm {
+        margin-top: -28px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .home-page .home-intro-strip.section-sm {
+        margin-top: -18px !important;
+    }
 }
