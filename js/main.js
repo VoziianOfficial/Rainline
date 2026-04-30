@@ -170,6 +170,16 @@
 
         const mount = qs(selectors.headerMount);
         const header = document.createElement("header");
+        const serviceLinks = config.services
+            .map((service) => {
+                return `
+                    <a class="desktop-subnav-link" href="${escapeHtml(service.href)}">
+                        ${createIcon(service.icon)}
+                        <span>${escapeHtml(service.title)}</span>
+                    </a>
+                `;
+            })
+            .join("");
 
         header.className = "site-header";
         header.setAttribute("data-header", "");
@@ -180,6 +190,21 @@
                 <nav class="desktop-nav" aria-label="Main navigation">
                     ${config.navigation
                 .map((item) => {
+                    if (item.href === "services.html") {
+                        return `
+                                <div class="desktop-nav-item desktop-nav-item-services">
+                                    <a href="${item.href}" class="desktop-nav-link-with-caret">
+                                        ${escapeHtml(item.label)}
+                                        ${createIcon("chevron-down")}
+                                    </a>
+
+                                    <div class="desktop-subnav" aria-label="Service pages">
+                                        ${serviceLinks}
+                                    </div>
+                                </div>
+                            `;
+                    }
+
                     return `
                                 <a href="${item.href}">
                                     ${escapeHtml(item.label)}
@@ -190,6 +215,15 @@
                 </nav>
 
                 <div class="header-actions">
+                    <a
+                        href="mailto:${escapeHtml(config.email)}"
+                        class="header-mail-cta"
+                        aria-label="Write to Rainline by email"
+                        data-email-link
+                    >
+                        ${createIcon("mail")}
+                    </a>
+
                     <a
                         href="tel:${escapeHtml(config.phoneHref)}"
                         class="btn header-cta"
@@ -541,10 +575,12 @@
        =============================== */
 
     function setActiveNavigation() {
+        const isServiceDetailPage = config.services.some((service) => isCurrentPage(service.href));
+
         qsa(".desktop-nav a, .mobile-nav a, .footer-col a").forEach((link) => {
             const href = link.getAttribute("href");
 
-            if (href && isCurrentPage(href)) {
+            if (href && (isCurrentPage(href) || (href === "services.html" && isServiceDetailPage))) {
                 link.classList.add("is-active");
                 link.setAttribute("aria-current", "page");
             }
