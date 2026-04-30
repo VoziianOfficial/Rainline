@@ -25,12 +25,33 @@
             return;
         }
 
+        const wrapper = swiperElement.querySelector(".swiper-wrapper");
+
+        if (wrapper) {
+            const initialSlides = Array.from(wrapper.children).filter((child) =>
+                child.classList && child.classList.contains("swiper-slide")
+            );
+
+            const minSlidesForLoop = 8;
+
+            if (initialSlides.length > 0 && initialSlides.length < minSlidesForLoop) {
+                const duplicatesNeeded = minSlidesForLoop - initialSlides.length;
+
+                for (let index = 0; index < duplicatesNeeded; index += 1) {
+                    const cloneSource = initialSlides[index % initialSlides.length];
+                    wrapper.append(cloneSource.cloneNode(true));
+                }
+            }
+        }
+
         new Swiper(swiperElement, {
             slidesPerView: 1.08,
             spaceBetween: 14,
             speed: 720,
             grabCursor: true,
-            loop: false,
+            loop: true,
+            watchOverflow: true,
+            slidesPerGroup: 1,
 
             pagination: {
                 el: ".home-gallery-swiper .swiper-pagination",
@@ -45,17 +66,20 @@
             breakpoints: {
                 640: {
                     slidesPerView: 1.45,
-                    spaceBetween: 16
+                    spaceBetween: 16,
+                    slidesPerGroup: 1
                 },
 
                 860: {
                     slidesPerView: 2.15,
-                    spaceBetween: 18
+                    spaceBetween: 18,
+                    slidesPerGroup: 1
                 },
 
                 1180: {
                     slidesPerView: 3.05,
-                    spaceBetween: 18
+                    spaceBetween: 18,
+                    slidesPerGroup: 1
                 }
             }
         });
