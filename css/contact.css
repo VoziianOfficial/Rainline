@@ -528,9 +528,9 @@
 .contact-expect-grid article {
     position: relative;
     overflow: hidden;
-    padding: 20px;
+    padding: 16px 72px 16px 16px;
     border: 1px solid rgba(200, 214, 217, 0.74);
-    border-radius: 24px;
+    border-radius: 22px;
     background: rgba(255, 255, 255, 0.72);
     box-shadow: 0 12px 30px rgba(23, 40, 46, 0.06);
     transition:
@@ -569,14 +569,17 @@
 }
 
 .contact-expect-grid article>span {
+    position: absolute;
+    top: 14px;
+    right: 14px;
     display: grid;
     place-items: center;
-    width: 52px;
-    height: 52px;
-    margin-bottom: 18px;
-    border-radius: 19px;
+    width: 46px;
+    height: 46px;
+    margin-bottom: 0;
+    border-radius: 16px;
     font-family: var(--font-display);
-    font-size: 19px;
+    font-size: 17px;
     font-weight: 800;
     color: var(--color-accent);
     background: var(--color-accent-soft);
@@ -588,7 +591,7 @@
 }
 
 .contact-expect-grid article:hover>span {
-    transform: translateY(-2px) rotate(-2deg);
+    transform: translateY(-2px) rotate(-3deg);
     background: rgba(212, 227, 230, 0.94);
     box-shadow: 0 16px 36px rgba(23, 40, 46, 0.12);
 }
@@ -596,14 +599,15 @@
 .contact-expect-grid h3 {
     margin-bottom: 8px;
     font-family: var(--font-body);
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 900;
     letter-spacing: -0.02em;
     line-height: 1.25;
 }
 
 .contact-expect-grid p {
-    font-size: 14px;
+    font-size: 13px;
+    line-height: 1.55;
     color: var(--color-muted);
 }
 
@@ -677,8 +681,20 @@
         padding-top: 12px;
     }
 
+    .contact-hero-shell {
+        min-height: auto;
+        align-items: start;
+        gap: 18px;
+    }
+
+    .contact-hero-copy {
+        padding-top: 0;
+    }
+
     .contact-hero-copy h1 {
         font-size: clamp(39px, 12vw, 62px);
+        line-height: 1.05;
+        letter-spacing: -0.05em;
     }
 
     .contact-hero-actions {
@@ -692,6 +708,11 @@
     .contact-expect-shell {
         padding: 18px;
         border-radius: 28px;
+    }
+
+    /* mobile: remove hero card completely (leave only copy + actions) */
+    .contact-hero-card {
+        display: none;
     }
 
     .contact-hero-card-top {
@@ -713,7 +734,8 @@
     }
 
     .contact-expect-grid article {
-        padding: 18px;
+        padding: 14px 64px 14px 14px;
+        border-radius: 20px;
     }
 }
 
@@ -748,9 +770,12 @@
     }
 
     .contact-expect-grid article>span {
-        width: 48px;
-        height: 48px;
-        border-radius: 17px;
+        top: 12px;
+        right: 12px;
+        width: 42px;
+        height: 42px;
+        border-radius: 15px;
+        font-size: 16px;
     }
 }
 
@@ -760,29 +785,31 @@
    делает заголовок меньше и даёт тексту больше ширины
    ========================================================== */
 
-.contact-page .contact-hero-shell {
-    grid-template-columns: minmax(0, 1.25fr) minmax(360px, 0.55fr);
-    gap: clamp(24px, 4vw, 56px);
-}
+@media (min-width: 981px) {
+    .contact-page .contact-hero-shell {
+        grid-template-columns: minmax(0, 1.25fr) minmax(360px, 0.55fr);
+        gap: clamp(24px, 4vw, 56px);
+    }
 
-.contact-page .contact-hero-copy {
-    max-width: none;
-}
+    .contact-page .contact-hero-copy {
+        max-width: none;
+    }
 
-.contact-page .contact-hero-copy h1 {
-    max-width: none;
-    font-size: clamp(42px, 5.2vw, 74px);
-    line-height: 0.98;
-    letter-spacing: -0.065em;
-}
+    .contact-page .contact-hero-copy h1 {
+        max-width: none;
+        font-size: clamp(42px, 5.2vw, 74px);
+        line-height: 0.98;
+        letter-spacing: -0.065em;
+    }
 
-.contact-page .contact-hero-copy p {
-    max-width: none;
-}
+    .contact-page .contact-hero-copy p {
+        max-width: none;
+    }
 
-.contact-page .contact-hero-card {
-    max-width: 430px;
-    justify-self: end;
+    .contact-page .contact-hero-card {
+        max-width: 430px;
+        justify-self: end;
+    }
 }
 
 
@@ -1141,6 +1168,58 @@
     }
 }
 
+/* tablet: keep desktop layout but more compact */
+@media (max-width: 980px) and (min-width: 761px) {
+    .contact-page .contact-map-lens {
+        padding: clamp(24px, 3.8vw, 46px) 0 !important;
+    }
+
+    .map-lens-layout {
+        grid-template-columns: minmax(0, 1.1fr) minmax(340px, 0.8fr);
+        gap: clamp(18px, 4vw, 52px);
+        align-items: center;
+    }
+
+    .map-lens-copy h2 {
+        font-size: clamp(34px, 4.6vw, 56px);
+        line-height: 1.03;
+    }
+
+    .map-lens-copy p {
+        margin-top: 14px;
+        font-size: 16px;
+    }
+
+    .map-lens-address {
+        margin-top: 18px;
+        padding: 12px 0;
+    }
+
+    .map-lens-signals {
+        margin-top: 18px;
+        gap: 8px;
+    }
+
+    .map-lens-visual {
+        min-height: 440px;
+        max-width: none;
+    }
+
+    .map-lens-orbit {
+        width: min(100%, 440px);
+    }
+
+    .map-lens-frame {
+        width: min(100%, 380px);
+        box-shadow: 0 22px 62px rgba(23, 40, 46, 0.14);
+    }
+
+    .map-lens-caption {
+        width: min(100%, 340px);
+        padding: 12px 14px;
+    }
+}
+
 @media (max-width: 640px) {
     .map-lens-copy h2 {
         font-size: clamp(34px, 10vw, 48px);
@@ -1256,4 +1335,108 @@
 
 .map-lens-visual:hover .map-lens-caption span {
     color: rgba(255, 255, 255, 0.86);
+}
+
+/* ==========================================================
+   CONTACT FORM — CUSTOM SELECT ARROW
+   для contactService и contactTiming
+   ========================================================== */
+
+.contact-form .field {
+    position: relative;
+}
+
+/* убираем дефолтную стрелку у select */
+.contact-form select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    padding-right: 46px;
+    cursor: pointer;
+}
+
+/* кастомная стрелка */
+.contact-form .field:has(select)::after {
+    content: "";
+    position: absolute;
+    right: 18px;
+    bottom: 18px;
+    width: 9px;
+    height: 9px;
+    border-right: 2px solid var(--color-accent);
+    border-bottom: 2px solid var(--color-accent);
+    transform: rotate(45deg);
+    pointer-events: none;
+    transition:
+        transform var(--transition-base),
+        border-color var(--transition-base);
+}
+
+/* hover */
+.contact-form .field:has(select):hover::after {
+    border-color: var(--color-accent-hover);
+}
+
+/* когда select в фокусе — стрелка чуть поднимается */
+.contact-form .field:has(select:focus)::after {
+    transform: rotate(45deg) translate(-2px, -2px);
+    border-color: var(--color-accent-hover);
+}
+
+/* если браузер показывает старую IE стрелку */
+.contact-form select::-ms-expand {
+    display: none;
+}
+
+/* ==========================================================
+   CONTACT FORM — TEXTAREA CLEAN STYLE
+   убирает дефолтное растягивание и делает textarea аккуратной
+   ========================================================== */
+
+.contact-form textarea {
+    resize: none;
+    min-height: 132px;
+    max-height: 132px;
+    height: 132px;
+    overflow-y: auto;
+    line-height: 1.55;
+}
+
+/* убираем дефолтные браузерные стили */
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+    font-family: inherit;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+/* чтобы textarea выглядела как остальные поля */
+.contact-form textarea {
+    width: 100%;
+    padding: 14px 16px;
+    border: 1px solid rgba(200, 214, 217, 0.82);
+    border-radius: 18px;
+    color: var(--color-text);
+    background: rgba(255, 255, 255, 0.78);
+    outline: none;
+    transition:
+        border-color var(--transition-base),
+        background var(--transition-base),
+        box-shadow var(--transition-base);
+}
+
+.contact-form textarea::placeholder {
+    color: rgba(111, 125, 130, 0.72);
+}
+
+.contact-form textarea:hover {
+    border-color: rgba(79, 117, 128, 0.34);
+    background: rgba(255, 255, 255, 0.96);
+}
+
+.contact-form textarea:focus {
+    border-color: var(--color-accent);
+    background: #ffffff;
+    box-shadow: 0 0 0 4px rgba(79, 117, 128, 0.14);
 }

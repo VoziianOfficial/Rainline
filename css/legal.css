@@ -351,6 +351,11 @@
     color: rgba(247, 250, 250, 0.74);
 }
 
+.legal-cta-shell > .btn {
+    justify-self: end;
+    align-self: end;
+}
+
 /* =========================
    PAGE MICRO DIFFERENCES
    ========================= */
@@ -382,22 +387,22 @@
 
     .legal-sidebar-card nav {
         display: flex;
+        flex-wrap: wrap;
         gap: 8px;
-        overflow-x: auto;
-        padding-bottom: 4px;
-        scrollbar-width: none;
-        scroll-snap-type: x mandatory;
-    }
-
-    .legal-sidebar-card nav::-webkit-scrollbar {
-        display: none;
+        overflow: visible;
+        padding-bottom: 0;
+        scroll-snap-type: none;
     }
 
     .legal-sidebar-card a {
-        flex: 0 0 auto;
-        scroll-snap-align: start;
+        flex: 0 1 auto;
         white-space: nowrap;
         background: rgba(255, 255, 255, 0.52);
+    }
+
+    .legal-sidebar-card a:hover,
+    .legal-sidebar-card a.is-active {
+        transform: none;
     }
 }
 
@@ -421,6 +426,12 @@
     .legal-cta-shell {
         padding: 18px;
         border-radius: 28px !important;
+    }
+
+    .legal-hero-shell::before,
+    .legal-cta-shell::before {
+        inset: 12px;
+        border-radius: 20px;
     }
 
     .legal-hero h1 {

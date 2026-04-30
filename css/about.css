@@ -1417,6 +1417,57 @@
     }
 }
 
+/* tablet: keep desktop layout (3 columns), but slightly tighter */
+@media (max-width: 980px) and (min-width: 761px) {
+    .model-open-head {
+        text-align: center;
+    }
+
+    .model-open-head .section-kicker,
+    .model-open-head h2,
+    .model-open-head p {
+        margin-inline: auto;
+    }
+
+    .model-open-flow {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .model-open-item {
+        padding: clamp(18px, 2.6vw, 28px);
+        row-gap: clamp(18px, 3vw, 40px);
+        min-height: 260px;
+    }
+
+    .model-open-item+.model-open-item {
+        border-left: 1px solid rgba(200, 214, 217, 0.9);
+        border-top: 0;
+    }
+
+    .model-open-item::after {
+        left: clamp(18px, 2.6vw, 28px);
+        right: clamp(18px, 2.6vw, 28px);
+    }
+
+    .model-open-item-accent {
+        background: linear-gradient(180deg,
+                rgba(212, 227, 230, 0.34),
+                rgba(255, 255, 255, 0.12));
+    }
+
+    .model-open-legal {
+        text-align: center;
+        margin-inline: auto;
+    }
+}
+
+/* mobile: hide section entirely */
+@media (max-width: 760px) {
+    .about-model-open {
+        display: none;
+    }
+}
+
 @media (max-width: 640px) {
     .about-model-open {
         padding: 24px 0 !important;
@@ -1984,5 +2035,174 @@
 
     .about-faq-center {
         min-height: 170px;
+    }
+}
+
+/* tablet: keep desktop compass layout, but more compact */
+@media (max-width: 980px) and (min-width: 761px) {
+    .about-faq-head {
+        text-align: center;
+    }
+
+    .about-faq-head .section-kicker,
+    .about-faq-head h2,
+    .about-faq-head p {
+        margin-inline: auto;
+    }
+
+    .about-faq-compass-grid {
+        grid-template-columns: minmax(0, 1fr) 190px minmax(0, 1fr);
+        gap: clamp(12px, 2.2vw, 22px);
+        margin-top: clamp(16px, 2.6vw, 26px);
+    }
+
+    .about-faq-center {
+        order: 0;
+        min-height: 240px;
+    }
+
+    .about-faq-center::before {
+        width: 190px;
+        height: 190px;
+    }
+
+    .about-faq-center::after {
+        width: 144px;
+        height: 144px;
+    }
+
+    .about-faq-center-ring {
+        width: 116px;
+        height: 116px;
+    }
+
+    .about-faq-side-left .about-faq-line {
+        text-align: right;
+        grid-template-columns: minmax(0, 1fr) 54px;
+    }
+
+    .about-faq-side-left .about-faq-line span {
+        grid-column: 2;
+        grid-row: 1;
+    }
+
+    .about-faq-side-left .about-faq-line div {
+        grid-column: 1;
+        grid-row: 1;
+    }
+
+    .about-faq-side-left .about-faq-line p {
+        margin-left: auto;
+    }
+
+    .about-faq-line {
+        grid-template-columns: 54px minmax(0, 1fr);
+        gap: 12px;
+        min-height: 92px;
+        padding: 12px 0;
+    }
+
+    .about-faq-line p {
+        max-width: 320px;
+        font-size: 13px;
+    }
+
+    .about-faq-bottom-note {
+        max-width: 840px;
+        margin-top: 16px;
+        padding-top: 14px;
+        text-align: center;
+        justify-content: center;
+    }
+}
+
+/* mobile: make the stacked layout smaller / denser */
+@media (max-width: 760px) {
+    .about-faq-compass {
+        padding: 18px 0;
+    }
+
+    .about-faq-head p {
+        margin-top: 12px;
+        font-size: 15px;
+    }
+
+    .about-faq-compass-grid {
+        gap: 10px;
+        margin-top: 18px;
+    }
+
+    .about-faq-line {
+        padding: 12px 0;
+    }
+
+    .about-faq-line span {
+        width: 44px;
+        height: 44px;
+        font-size: 20px;
+    }
+
+    .about-faq-line p {
+        font-size: 13px;
+        line-height: 1.55;
+    }
+
+    .about-faq-center {
+        min-height: 160px;
+    }
+
+    .about-faq-center::before {
+        width: 176px;
+        height: 176px;
+    }
+
+    .about-faq-center::after {
+        width: 132px;
+        height: 132px;
+    }
+
+    .about-faq-center-ring {
+        width: 110px;
+        height: 110px;
+        box-shadow: 0 20px 54px rgba(23, 40, 46, 0.18);
+    }
+
+    .about-faq-center-ring i {
+        width: 22px;
+        height: 22px;
+        margin-bottom: 10px;
+    }
+
+    .about-faq-center-ring strong {
+        font-size: 13px;
+    }
+
+    .about-faq-center-ring span {
+        font-size: 10px;
+    }
+
+    .about-faq-bottom-note {
+        margin-top: 14px;
+        padding-top: 14px;
+    }
+}
+
+@media (max-width: 640px) {
+    .about-faq-compass {
+        padding: 16px 0;
+    }
+
+    .about-faq-line {
+        padding: 10px 0;
+    }
+
+    .about-faq-line span {
+        width: 42px;
+        height: 42px;
+        font-size: 19px;
+    }
+
+    .about-faq-center {
+        min-height: 150px;
     }
 }

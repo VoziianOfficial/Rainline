@@ -57,6 +57,7 @@
         initPolicyBanner();
         initFaqAccordions();
         initRevealAnimations();
+        initScrollLineMotion();
         initServiceCards();
         initFormValidation();
         initExternalLibraries();
@@ -965,6 +966,51 @@
             element.style.transitionDelay = `${Math.min(index * 45, 240)}ms`;
             observer.observe(element);
         });
+    }
+
+    /* ===============================
+       SCROLL LINE MOTION (SUBTLE)
+       =============================== */
+
+    function initScrollLineMotion() {
+        if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+            return;
+        }
+
+        const targets = qsa(".replacement-gauge, .service-flow-overview, .repair-issue-map");
+
+        if (!targets.length) {
+            return;
+        }
+
+        const clamp = (value, min, max) => Math.min(Math.max(value, min), max);
+        let rafId = null;
+
+        const update = () => {
+            rafId = null;
+            const viewportHeight = window.innerHeight || 1;
+
+            targets.forEach((element) => {
+                const rect = element.getBoundingClientRect();
+                const total = viewportHeight + rect.height;
+                const progress = clamp((viewportHeight - rect.top) / total, 0, 1);
+
+                const shiftX = (progress - 0.5) * 140;
+                element.style.setProperty("--line-scroll-x", `${shiftX.toFixed(2)}px`);
+            });
+        };
+
+        const requestUpdate = () => {
+            if (rafId !== null) {
+                return;
+            }
+
+            rafId = window.requestAnimationFrame(update);
+        };
+
+        update();
+        window.addEventListener("scroll", requestUpdate, { passive: true });
+        window.addEventListener("resize", requestUpdate, { passive: true });
     }
 
     /* ===============================

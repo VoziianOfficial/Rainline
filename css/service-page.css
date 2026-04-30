@@ -597,7 +597,6 @@
     }
 
     .service-overview-panel,
-    .service-photo-card,
     .service-faq .faq-shell {
         grid-template-columns: 1fr;
     }
@@ -608,6 +607,48 @@
 
     .service-faq .faq-intro {
         position: static;
+    }
+}
+
+/* tablet: keep desktop photo section layout, but more compact */
+@media (max-width: 1180px) and (min-width: 761px) {
+    .service-photo-card {
+        grid-template-columns: minmax(380px, 1.05fr) minmax(0, 0.95fr);
+        gap: clamp(18px, 3.8vw, 52px);
+        align-items: center;
+    }
+
+    .service-photo-media {
+        min-height: 520px;
+        border-radius: 38px;
+    }
+
+    .service-photo-media img {
+        min-height: 520px;
+    }
+
+    .service-photo-label {
+        left: 18px;
+        bottom: 18px;
+        padding: 12px 14px;
+    }
+
+    .service-photo-content p {
+        margin-top: 14px;
+    }
+
+    .service-question-list {
+        gap: 8px;
+        margin-top: 18px;
+    }
+
+    .service-question-list li {
+        padding: 12px 13px;
+        border-radius: 18px;
+    }
+
+    .service-question-list span {
+        font-size: 13.5px;
     }
 }
 
@@ -1261,6 +1302,7 @@
 .service-flow-overview {
     position: relative;
     overflow: hidden;
+    --line-scroll-x: 0px;
     padding-top: clamp(14px, 2.6vw, 26px) !important;
     padding-bottom: clamp(12px, 2.2vw, 22px) !important;
     background:
@@ -1275,10 +1317,17 @@
     right: 0;
     top: clamp(14px, 2.6vw, 26px);
     height: 1px;
-    background: linear-gradient(90deg,
+    background-image:
+        linear-gradient(90deg,
             transparent,
-            rgba(79, 117, 128, 0.26),
-            transparent);
+            rgba(79, 117, 128, 0.28),
+            transparent),
+        repeating-linear-gradient(90deg,
+            rgba(79, 117, 128, 0) 0 26px,
+            rgba(79, 117, 128, 0.24) 26px 28px,
+            rgba(79, 117, 128, 0) 28px 56px);
+    background-size: 100% 100%, 180px 100%;
+    background-position: 0 0, var(--line-scroll-x) 0;
     pointer-events: none;
 }
 
@@ -1289,10 +1338,17 @@
     right: 0;
     bottom: clamp(12px, 2.2vw, 22px);
     height: 1px;
-    background: linear-gradient(90deg,
+    background-image:
+        linear-gradient(90deg,
             transparent,
-            rgba(79, 117, 128, 0.18),
-            transparent);
+            rgba(79, 117, 128, 0.2),
+            transparent),
+        repeating-linear-gradient(90deg,
+            rgba(79, 117, 128, 0) 0 26px,
+            rgba(79, 117, 128, 0.16) 26px 28px,
+            rgba(79, 117, 128, 0) 28px 56px);
+    background-size: 100% 100%, 180px 100%;
+    background-position: 0 0, calc(0px - var(--line-scroll-x)) 0;
     pointer-events: none;
 }
 
@@ -1430,6 +1486,17 @@
     color: #ffffff;
     border-color: var(--color-accent);
     background: var(--color-accent);
+    box-shadow:
+        0 0 0 8px var(--color-bg),
+        0 18px 40px rgba(54, 88, 98, 0.22);
+}
+
+.flow-overview-track article:hover h3 {
+    color: var(--color-accent-hover);
+}
+
+.flow-overview-track article:hover p {
+    color: rgba(23, 40, 46, 0.8);
 }
 
 .flow-overview-track h3 {
@@ -1870,11 +1937,14 @@
 /* мобильная */
 @media (max-width: 640px) {
     .cleaning-snapshot-media {
-        min-height: 360px;
+        min-height: 0;
+        height: auto;
+        aspect-ratio: 1 / 1;
     }
 
     .cleaning-snapshot-media img {
-        min-height: 360px;
+        min-height: 0;
+        height: 100%;
     }
 }
 
@@ -1913,7 +1983,33 @@
     max-width: 640px;
 }
 
-@media (max-width: 980px) {
+/* tablet: keep desktop-like 2-column layout, but more compact */
+@media (max-width: 980px) and (min-width: 761px) {
+    .cleaning-snapshot {
+        padding: 18px 0 26px !important;
+    }
+
+    .cleaning-snapshot .container-wide {
+        width: min(calc(100% - 32px), 1120px);
+    }
+
+    .cleaning-snapshot-layout {
+        grid-template-columns: minmax(360px, 460px) minmax(0, 1fr);
+        gap: clamp(22px, 4vw, 42px);
+        align-items: center;
+    }
+
+    .cleaning-snapshot-media {
+        max-width: 460px;
+    }
+
+    .cleaning-snapshot-content {
+        max-width: none;
+    }
+}
+
+/* mobile: stack */
+@media (max-width: 760px) {
     .cleaning-snapshot .container-wide {
         width: min(calc(100% - 32px), 1120px);
     }
@@ -1945,6 +2041,7 @@
 .replacement-gauge {
     position: relative;
     overflow: hidden;
+    --line-scroll-x: 0px;
     padding: clamp(22px, 4vw, 42px) 0 clamp(18px, 3vw, 30px) !important;
     background:
         radial-gradient(circle at 84% 0%, rgba(212, 227, 230, 0.58), transparent 28%),
@@ -1996,10 +2093,17 @@
     top: -1px;
     height: 2px;
     border-radius: 999px;
-    background: linear-gradient(90deg,
+    background-image:
+        linear-gradient(90deg,
             transparent,
-            rgba(79, 117, 128, 0.54),
-            transparent);
+            rgba(79, 117, 128, 0.58),
+            transparent),
+        repeating-linear-gradient(90deg,
+            rgba(79, 117, 128, 0) 0 22px,
+            rgba(79, 117, 128, 0.28) 22px 24px,
+            rgba(79, 117, 128, 0) 24px 46px);
+    background-size: 100% 100%, 160px 100%;
+    background-position: 0 0, var(--line-scroll-x) 0;
 }
 
 .replacement-gauge-line article {
@@ -2008,6 +2112,9 @@
     justify-items: center;
     text-align: center;
     padding: 0 10px;
+    transition:
+        transform var(--transition-base),
+        filter var(--transition-base);
 }
 
 .replacement-gauge-line article::before {
@@ -2028,6 +2135,7 @@
 .replacement-gauge-line article:hover::before {
     transform: scale(1.25);
     background: var(--color-accent-hover);
+    box-shadow: 0 0 0 1px rgba(79, 117, 128, 0.34), 0 10px 22px rgba(54, 88, 98, 0.25);
 }
 
 .replacement-gauge-line i {
@@ -2043,6 +2151,28 @@
 .replacement-gauge-line article:hover i {
     transform: translateY(-3px);
     color: var(--color-accent-hover);
+    filter: drop-shadow(0 14px 20px rgba(54, 88, 98, 0.28));
+}
+
+.replacement-gauge-line article:hover {
+    transform: translateY(-2px);
+    filter: saturate(1.05);
+}
+
+.replacement-gauge-line article:hover strong {
+    color: var(--color-accent-hover);
+}
+
+.replacement-gauge-line article:hover span {
+    color: rgba(23, 40, 46, 0.82);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .service-flow-overview,
+    .replacement-gauge,
+    .repair-issue-map {
+        --line-scroll-x: 0px;
+    }
 }
 
 .replacement-gauge-line strong {
@@ -2120,8 +2250,15 @@
     .replacement-gauge-line article {
         justify-items: start;
         text-align: left;
-        padding: 18px 0;
+        padding: 18px 44px 18px 0;
         border-top: 1px solid rgba(200, 214, 217, 0.86);
+    }
+
+    .replacement-gauge-line i {
+        position: absolute;
+        top: 18px;
+        right: 0;
+        margin: 0;
     }
 
     .replacement-gauge-line article::before {
@@ -2139,9 +2276,157 @@
     }
 }
 
+/* tablets: use the mobile (stacked) layout, but tighter */
+@media (max-width: 1180px) and (min-width: 641px) {
+    .replacement-gauge {
+        padding: 18px 0 18px !important;
+    }
+
+    .replacement-gauge-head {
+        text-align: left;
+        margin-inline: 0;
+        max-width: none;
+    }
+
+    .replacement-gauge-head .section-kicker,
+    .replacement-gauge-head h2,
+    .replacement-gauge-head p {
+        margin-inline: 0;
+    }
+
+    .replacement-gauge-head h2 {
+        max-width: none;
+    }
+
+    .replacement-gauge-head p {
+        max-width: none;
+    }
+
+    .replacement-gauge-head p {
+        margin-top: 12px;
+    }
+
+    .replacement-gauge-line {
+        grid-template-columns: 1fr;
+        gap: 0;
+        margin-top: 18px;
+        padding-top: 0;
+        border-top: 0;
+    }
+
+    .replacement-gauge-line::before,
+    .replacement-gauge-line article::before {
+        display: none;
+    }
+
+    .replacement-gauge-line article {
+        justify-items: start;
+        text-align: left;
+        padding: 14px 0;
+        border-top: 1px solid rgba(200, 214, 217, 0.86);
+    }
+
+    .replacement-gauge-line i {
+        width: 22px;
+        height: 22px;
+        margin-bottom: 10px;
+    }
+
+    .replacement-gauge-line strong {
+        margin-bottom: 6px;
+        font-size: 18px;
+    }
+
+    .replacement-gauge-line span {
+        max-width: none;
+        font-size: 13px;
+        line-height: 1.55;
+    }
+
+    .replacement-gauge-note {
+        text-align: left;
+        justify-content: flex-start;
+        max-width: none;
+        margin: 18px 0 0;
+        padding-top: 14px;
+    }
+}
+
+/* mini tablets: same stacked layout, even more compact */
+@media (max-width: 820px) and (min-width: 641px) {
+    .replacement-gauge {
+        padding: 16px 0 16px !important;
+    }
+
+    .replacement-gauge-head h2 {
+        max-width: none;
+    }
+
+    .replacement-gauge-head p {
+        max-width: none;
+    }
+
+    .replacement-gauge-line {
+        margin-top: 16px;
+    }
+
+    .replacement-gauge-line article {
+        padding: 12px 0;
+    }
+
+    .replacement-gauge-line i {
+        width: 20px;
+        height: 20px;
+        margin-bottom: 9px;
+    }
+
+    .replacement-gauge-line strong {
+        font-size: 17px;
+    }
+
+    .replacement-gauge-note {
+        margin-top: 16px;
+        padding-top: 12px;
+    }
+}
+
 @media (max-width: 640px) {
     .replacement-gauge .container-wide {
         width: min(calc(100% - 24px), var(--container-wide));
+    }
+
+    .replacement-gauge {
+        padding: 16px 0 16px !important;
+    }
+
+    .replacement-gauge-line {
+        margin-top: 16px;
+    }
+
+    .replacement-gauge-line article {
+        padding: 12px 44px 12px 0;
+    }
+
+    .replacement-gauge-line i {
+        position: absolute;
+        top: 14px;
+        right: 0;
+        width: 20px;
+        height: 20px;
+        margin: 0;
+    }
+
+    .replacement-gauge-line strong {
+        font-size: 17px;
+    }
+
+    .replacement-gauge-note {
+        margin-top: 16px;
+        padding-top: 12px;
+    }
+
+    .replacement-gauge-line span {
+        max-width: 34ch;
     }
 }
 
@@ -2153,6 +2438,7 @@
 .repair-issue-map {
     position: relative;
     overflow: hidden;
+    --line-scroll-x: 0px;
     padding: clamp(22px, 4vw, 42px) 0 clamp(18px, 3vw, 32px) !important;
     background:
         radial-gradient(circle at 12% 0%, rgba(212, 227, 230, 0.58), transparent 30%),
@@ -2167,18 +2453,26 @@
     right: 0;
     height: 1px;
     pointer-events: none;
-    background: linear-gradient(90deg,
+    background-image:
+        linear-gradient(90deg,
             transparent,
-            rgba(79, 117, 128, 0.24),
-            transparent);
+            rgba(79, 117, 128, 0.26),
+            transparent),
+        repeating-linear-gradient(90deg,
+            rgba(79, 117, 128, 0) 0 26px,
+            rgba(79, 117, 128, 0.2) 26px 28px,
+            rgba(79, 117, 128, 0) 28px 56px);
+    background-size: 100% 100%, 180px 100%;
 }
 
 .repair-issue-map::before {
     top: clamp(22px, 4vw, 42px);
+    background-position: 0 0, var(--line-scroll-x) 0;
 }
 
 .repair-issue-map::after {
     bottom: clamp(18px, 3vw, 32px);
+    background-position: 0 0, calc(0px - var(--line-scroll-x)) 0;
 }
 
 .repair-issue-map .container-wide {
@@ -2470,5 +2764,333 @@
     .repair-map-point-three {
         top: auto;
         bottom: 22px;
+    }
+}
+/* ==========================================================
+   REPLACEMENT GAUGE — TABLET SAME AS DESKTOP, COMPACT
+   вставить самым последним в service-page.css
+   ========================================================== */
+
+@media (max-width: 1180px) and (min-width: 641px) {
+    .replacement-gauge {
+        padding: clamp(18px, 3vw, 30px) 0 clamp(16px, 2.6vw, 26px) !important;
+    }
+
+    .replacement-gauge .container-wide {
+        width: min(calc(100% - 32px), 1040px) !important;
+    }
+
+    .replacement-gauge-head {
+        max-width: 900px !important;
+        margin-inline: auto !important;
+        text-align: center !important;
+    }
+
+    .replacement-gauge-head .section-kicker {
+        margin-inline: auto !important;
+    }
+
+    .replacement-gauge-head h2 {
+        max-width: 900px !important;
+        margin-inline: auto !important;
+        font-size: clamp(32px, 5vw, 52px);
+        line-height: 1;
+    }
+
+    .replacement-gauge-head p {
+        max-width: 720px !important;
+        margin: 12px auto 0 !important;
+        font-size: 15px;
+        line-height: 1.58;
+    }
+
+    .replacement-gauge-line {
+        display: grid !important;
+        grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+        gap: clamp(12px, 2vw, 24px) !important;
+        margin-top: clamp(22px, 3vw, 32px) !important;
+        padding: 24px 0 0 !important;
+        border-top: 1px solid rgba(79, 117, 128, 0.22) !important;
+    }
+
+    .replacement-gauge-line::before {
+        display: block !important;
+        left: 8% !important;
+        right: 8% !important;
+        top: -1px !important;
+    }
+
+    .replacement-gauge-line article {
+        display: grid !important;
+        justify-items: center !important;
+        text-align: center !important;
+        padding: 0 6px !important;
+        border-top: 0 !important;
+    }
+
+    .replacement-gauge-line article::before {
+        display: block !important;
+        top: -32px !important;
+        width: 11px !important;
+        height: 11px !important;
+        border-width: 3px !important;
+    }
+
+    .replacement-gauge-line i {
+        width: 21px !important;
+        height: 21px !important;
+        margin-bottom: 11px !important;
+    }
+
+    .replacement-gauge-line strong {
+        margin-bottom: 7px !important;
+        font-size: clamp(16px, 2vw, 19px) !important;
+        line-height: 1.15 !important;
+    }
+
+    .replacement-gauge-line span {
+        max-width: 240px !important;
+        margin-inline: auto !important;
+        font-size: 12.5px !important;
+        line-height: 1.5 !important;
+    }
+
+    .replacement-gauge-note {
+        justify-content: center !important;
+        max-width: 760px !important;
+        margin: clamp(18px, 2.6vw, 26px) auto 0 !important;
+        padding-top: 14px !important;
+        text-align: center !important;
+    }
+
+    .replacement-gauge-note span {
+        font-size: 12.5px !important;
+        line-height: 1.55 !important;
+    }
+}
+
+/* mini tablet — тот же desktop format, просто ещё компактнее */
+@media (max-width: 820px) and (min-width: 641px) {
+    .replacement-gauge .container-wide {
+        width: min(calc(100% - 28px), 860px) !important;
+    }
+
+    .replacement-gauge-head h2 {
+        font-size: clamp(30px, 5.4vw, 44px) !important;
+    }
+
+    .replacement-gauge-line {
+        gap: 12px !important;
+        margin-top: 22px !important;
+        padding-top: 22px !important;
+    }
+
+    .replacement-gauge-line article {
+        padding-inline: 4px !important;
+    }
+
+    .replacement-gauge-line article::before {
+        top: -29px !important;
+        width: 10px !important;
+        height: 10px !important;
+    }
+
+    .replacement-gauge-line i {
+        width: 19px !important;
+        height: 19px !important;
+        margin-bottom: 9px !important;
+    }
+
+    .replacement-gauge-line strong {
+        font-size: 16px !important;
+    }
+
+    .replacement-gauge-line span {
+        max-width: 200px !important;
+        font-size: 12px !important;
+        line-height: 1.45 !important;
+    }
+
+    .replacement-gauge-note {
+        max-width: 720px !important;
+        margin-top: 18px !important;
+    }
+}
+
+/* ==========================================================
+   MOBILE — HIDE SERVICE PHOTO SECTION
+   скрываем секцию service-photo-section на мобилке
+   ========================================================== */
+
+@media (max-width: 760px) {
+    .service-photo-section {
+        display: none !important;
+    }
+}
+
+/* ==========================================================
+   REPLACEMENT GAUGE — MOBILE ICON RIGHT CORNER FIX
+   иконки справа, текст компактнее
+   ========================================================== */
+
+@media (max-width: 640px) {
+    .replacement-gauge {
+        padding: 16px 0 16px !important;
+    }
+
+    .replacement-gauge-line {
+        display: grid !important;
+        grid-template-columns: 1fr !important;
+        gap: 9px !important;
+        margin-top: 16px !important;
+        padding: 0 !important;
+        border-top: 0 !important;
+    }
+
+    .replacement-gauge-line::before,
+    .replacement-gauge-line article::before {
+        display: none !important;
+    }
+
+    .replacement-gauge-line article {
+        position: relative !important;
+        display: block !important;
+        min-height: auto !important;
+        padding: 13px 58px 13px 14px !important;
+        border: 1px solid rgba(200, 214, 217, 0.82) !important;
+        border-radius: 18px !important;
+        background: rgba(255, 255, 255, 0.78) !important;
+        box-shadow: 0 10px 24px rgba(23, 40, 46, 0.055) !important;
+        text-align: left !important;
+    }
+
+    .replacement-gauge-line article:hover {
+        transform: translateY(-2px) !important;
+        border-color: rgba(79, 117, 128, 0.32) !important;
+        background: rgba(255, 255, 255, 0.94) !important;
+    }
+
+    /* иконка справа в углу */
+    .replacement-gauge-line article>i {
+        position: absolute !important;
+        top: 12px !important;
+        right: 12px !important;
+        display: grid !important;
+        place-items: center !important;
+        width: 36px !important;
+        height: 36px !important;
+        margin: 0 !important;
+        padding: 9px !important;
+        border: 1px solid rgba(79, 117, 128, 0.18) !important;
+        border-radius: 14px !important;
+        color: var(--color-accent) !important;
+        background: rgba(212, 227, 230, 0.46) !important;
+        box-shadow: none !important;
+    }
+
+    .replacement-gauge-line article:hover>i {
+        color: #ffffff !important;
+        border-color: var(--color-accent) !important;
+        background: var(--color-accent) !important;
+        transform: rotate(-3deg) translateY(-1px) !important;
+    }
+
+    .replacement-gauge-line strong {
+        display: block !important;
+        max-width: calc(100% - 8px) !important;
+        margin: 0 0 4px !important;
+        font-size: 16px !important;
+        line-height: 1.15 !important;
+        letter-spacing: -0.025em !important;
+        color: var(--color-heading) !important;
+    }
+
+    /* compact text */
+    .replacement-gauge-line span {
+        display: block !important;
+        max-width: 31ch !important;
+        margin: 0 !important;
+        font-size: 12.3px !important;
+        line-height: 1.42 !important;
+        color: var(--color-muted) !important;
+    }
+
+    .replacement-gauge-note {
+        margin-top: 10px !important;
+        padding: 12px 13px !important;
+        border-radius: 16px !important;
+    }
+
+    .replacement-gauge-note span {
+        font-size: 12px !important;
+        line-height: 1.45 !important;
+    }
+}
+
+/* ==========================================================
+   REPLACEMENT GAUGE — MOBILE ICON RIGHT FIX FOR LUCIDE SVG
+   потому что lucide заменяет i на svg
+   ========================================================== */
+
+@media (max-width: 640px) {
+    .replacement-gauge-line article {
+        position: relative !important;
+        display: block !important;
+        padding: 13px 58px 13px 14px !important;
+        border: 1px solid rgba(200, 214, 217, 0.82) !important;
+        border-radius: 18px !important;
+        background: rgba(255, 255, 255, 0.78) !important;
+        text-align: left !important;
+    }
+
+    /* вот главная правка: target и i, и svg */
+    .replacement-gauge-line article>i,
+    .replacement-gauge-line article>svg,
+    .replacement-gauge-line article>.lucide {
+        position: absolute !important;
+        top: 12px !important;
+        right: 12px !important;
+        left: auto !important;
+        bottom: auto !important;
+
+        display: block !important;
+        width: 36px !important;
+        height: 36px !important;
+        margin: 0 !important;
+        padding: 9px !important;
+
+        border: 1px solid rgba(79, 117, 128, 0.18) !important;
+        border-radius: 14px !important;
+        color: var(--color-accent) !important;
+        background: rgba(212, 227, 230, 0.46) !important;
+        box-shadow: none !important;
+
+        transform: none !important;
+    }
+
+    .replacement-gauge-line article:hover>i,
+    .replacement-gauge-line article:hover>svg,
+    .replacement-gauge-line article:hover>.lucide {
+        color: #ffffff !important;
+        border-color: var(--color-accent) !important;
+        background: var(--color-accent) !important;
+        transform: rotate(-3deg) translateY(-1px) !important;
+    }
+
+    .replacement-gauge-line strong {
+        display: block !important;
+        margin: 0 0 4px !important;
+        padding-right: 4px !important;
+        font-size: 16px !important;
+        line-height: 1.15 !important;
+        letter-spacing: -0.025em !important;
+    }
+
+    .replacement-gauge-line span {
+        display: block !important;
+        max-width: 29ch !important;
+        margin: 0 !important;
+        font-size: 12.2px !important;
+        line-height: 1.42 !important;
     }
 }

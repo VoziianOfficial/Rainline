@@ -831,13 +831,50 @@
     }
 
     .services-compare-shell,
-    .services-questions-panel,
     .services-faq .faq-shell {
         grid-template-columns: 1fr;
     }
 
     .services-faq .faq-intro {
         position: static;
+    }
+}
+
+/* tablet: keep desktop layout but more compact */
+@media (max-width: 1180px) and (min-width: 761px) {
+    .services-questions-panel {
+        grid-template-columns: minmax(380px, 1.05fr) minmax(0, 0.95fr);
+        gap: clamp(18px, 3.6vw, 46px);
+        align-items: center;
+    }
+
+    .services-questions-media {
+        min-height: 480px;
+        border-radius: 36px;
+    }
+
+    .services-questions-media img {
+        min-height: 480px;
+    }
+
+    .services-questions-note {
+        left: 18px;
+        bottom: 18px;
+        padding: 12px 14px;
+    }
+
+    .question-pill-list {
+        gap: 8px;
+        margin-top: 18px;
+    }
+
+    .question-pill-list article {
+        padding: 12px 13px;
+        border-radius: 18px;
+    }
+
+    .question-pill-list p {
+        font-size: 13.5px;
     }
 }
 
@@ -860,6 +897,10 @@
 }
 
 @media (max-width: 760px) {
+    .services-questions {
+        display: none;
+    }
+
     .services-hero {
         padding-top: 12px;
     }
@@ -940,6 +981,10 @@
     .services-cta-shell {
         padding: 18px;
         border-radius: 28px;
+    }
+
+    .services-questions-panel {
+        grid-template-columns: 1fr;
     }
 
     .services-compare-list article {
@@ -1288,15 +1333,19 @@
     }
 
     .rainflow-step {
+        position: relative;
         display: grid;
-        grid-template-columns: 72px minmax(0, 1fr);
-        gap: 14px;
+        grid-template-columns: 1fr;
+        gap: 0;
         align-items: stretch;
         justify-items: stretch;
         text-align: left;
     }
 
     .rainflow-dot {
+        position: absolute;
+        top: 14px;
+        right: 14px;
         width: 58px;
         height: 58px;
         margin-bottom: 0;
@@ -1304,8 +1353,14 @@
         box-shadow: 0 14px 32px rgba(23, 40, 46, 0.1);
     }
 
+    .rainflow-dot i {
+        width: 22px;
+        height: 22px;
+    }
+
     .rainflow-content {
         min-height: auto;
+        padding: 18px 82px 18px 18px;
     }
 
     .rainflow-number {
@@ -1354,8 +1409,21 @@
         gap: 10px;
     }
 
+    .rainflow-dot {
+        top: 12px;
+        right: 12px;
+        width: 52px;
+        height: 52px;
+        border-radius: 18px;
+    }
+
+    .rainflow-dot i {
+        width: 20px;
+        height: 20px;
+    }
+
     .rainflow-content {
-        padding: 18px;
+        padding: 18px 76px 18px 18px;
         border-radius: 22px;
     }
 
@@ -1827,3 +1895,4 @@
     margin: 16px auto 0;
     color: var(--color-muted);
 }
+
