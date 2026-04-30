@@ -18,6 +18,8 @@
     inset: 0;
     z-index: 0;
     background:
+        linear-gradient(180deg, rgba(238, 244, 245, 0.7), rgba(238, 244, 245, 0.85)),
+        url("../assets/images/contact/contact-hero-bg.jpg") center / cover no-repeat,
         radial-gradient(circle at 12% 10%, rgba(212, 227, 230, 0.92), transparent 30%),
         radial-gradient(circle at 88% 4%, rgba(255, 255, 255, 0.86), transparent 34%),
         linear-gradient(180deg, rgba(238, 244, 245, 0.98), rgba(238, 244, 245, 0.66));
