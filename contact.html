@@ -10,11 +10,11 @@
 
     <title>Contact Rainline | Start a Gutter Provider Request</title>
 
-    <link rel="icon" href="./assets/images/favicon.svg" type="image/svg+xml" />
-    <link rel="icon" href="./assets/images/favicon.ico" sizes="any" />
-    <link rel="icon" href="./assets/images/favicon-32.png" type="image/png" sizes="32x32" />
-    <link rel="icon" href="./assets/images/favicon-16.png" type="image/png" sizes="16x16" />
-    <link rel="apple-touch-icon" href="./assets/images/apple-touch-icon.png" />
+    <link rel="icon" href="./assets/images/favicon.svg?v=2" type="image/svg+xml" />
+    <link rel="icon" href="./assets/images/favicon.ico?v=2" sizes="any" />
+    <link rel="icon" href="./assets/images/favicon-32.png?v=2" type="image/png" sizes="32x32" />
+    <link rel="icon" href="./assets/images/favicon-16.png?v=2" type="image/png" sizes="16x16" />
+    <link rel="apple-touch-icon" href="./assets/images/apple-touch-icon.png?v=2" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -242,60 +242,71 @@
             </div>
         </section>
 
-        <!-- MAP / AREA -->
-        <section class="contact-area section" aria-labelledby="contactAreaTitle">
-            <div class="container-wide">
-                <div class="contact-area-grid">
-                    <div class="map-card contact-map reveal-fade" aria-label="Rainline USA matching area visual">
-                        <div class="map-pin-card">
-                            <i data-lucide="map-pin"></i>
-                            <strong>USA provider matching area</strong>
-                            <span data-service-area>
-                                Independent gutter provider matching across the United States
-                            </span>
-                        </div>
-                    </div>
+<!-- MAP / AREA -->
+<section class="contact-area contact-map-lens section" aria-labelledby="contactAreaTitle">
+    <div class="container-wide">
+        <div class="map-lens-layout">
+            <div class="map-lens-copy reveal-up">
+                <span class="section-kicker">
+                    <i data-lucide="map-pin"></i>
+                    Service area context
+                </span>
 
-                    <div class="contact-area-copy reveal-up">
-                        <span class="section-kicker">
-                            <i data-lucide="map-pin"></i>
-                            Service area context
-                        </span>
+                <h2 id="contactAreaTitle">
+                    A ZIP code gives the request a real starting point.
+                </h2>
 
-                        <h2 id="contactAreaTitle">
-                            Provider availability can depend on your ZIP code and project type.
-                        </h2>
+                <p>
+                    Rainline helps homeowners begin gutter provider requests across the United States.
+                    Availability may vary by location, service category, home access, timing, and local provider
+                    coverage.
+                </p>
 
-                        <p>
-                            Gutter provider coverage may vary by city, season, home access, roofline complexity, and
-                            service category. Rainline helps organize your request so local provider options may be
-                            compared more clearly.
-                        </p>
+                <div class="map-lens-address">
+                    <i data-lucide="building-2"></i>
+                    <span>600 Congress Avenue, Austin, TX 78701, USA</span>
+                </div>
 
-                        <div class="contact-area-list">
-                            <article>
-                                <i data-lucide="circle-check"></i>
-                                <span>Share ZIP code and service category.</span>
-                            </article>
+                <div class="map-lens-signals" aria-label="Service area request details">
+                    <span>
+                        <i data-lucide="map-pin"></i>
+                        ZIP-based context
+                    </span>
 
-                            <article>
-                                <i data-lucide="circle-check"></i>
-                                <span>Mention visible gutter issues or project goals.</span>
-                            </article>
+                    <span>
+                        <i data-lucide="cloud-rain"></i>
+                        USA gutter matching
+                    </span>
 
-                            <article>
-                                <i data-lucide="circle-check"></i>
-                                <span>Compare quotes and credentials directly with providers.</span>
-                            </article>
-                        </div>
-                    </div>
+                    <span>
+                        <i data-lucide="shield-check"></i>
+                        Independent providers
+                    </span>
                 </div>
             </div>
-        </section>
 
+            <div class="map-lens-visual reveal-fade">
+                <div class="map-lens-orbit" aria-hidden="true"></div>
+
+                <div class="map-lens-frame">
+                    <iframe title="Rainline reference map - Austin Texas"
+                        src="https://www.google.com/maps?q=600%20Congress%20Avenue%2C%20Austin%2C%20TX%2078701%2C%20USA&output=embed"
+                        loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+                        aria-label="Map showing 600 Congress Avenue, Austin, Texas">
+                    </iframe>
+                </div>
+
+                <div class="map-lens-caption">
+                    <i data-lucide="search-check"></i>
+                    <span>Use location to begin provider comparison, not to imply direct gutter service.</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
         <!-- EXPECTATIONS -->
         <section class="contact-expect section" aria-labelledby="contactExpectTitle">
-            <div class="container">
+            <div class="container-wide">
                 <div class="contact-expect-shell reveal-up">
                     <div>
                         <span class="section-kicker">
@@ -341,7 +352,7 @@
 
         <!-- FAQ -->
         <section class="contact-faq section" aria-labelledby="contactFaqTitle">
-            <div class="container">
+            <div class="container-wide">
                 <div class="faq-shell">
                     <div class="faq-intro reveal-up">
                         <span class="section-kicker">

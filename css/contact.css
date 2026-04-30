@@ -10,6 +10,8 @@
 .contact-hero {
     padding: clamp(20px, 3vw, 36px) 0 var(--section-gap);
     overflow: hidden;
+    color: var(--color-white);
+    background: #17282e;
 }
 
 .contact-hero::before {
@@ -17,12 +19,13 @@
     position: absolute;
     inset: 0;
     z-index: 0;
+    filter: saturate(1.08) contrast(1.06) brightness(0.98);
     background:
-        linear-gradient(180deg, rgba(238, 244, 245, 0.7), rgba(238, 244, 245, 0.85)),
-        url("../assets/images/contact/contact-hero-bg.jpg") center / cover no-repeat,
-        radial-gradient(circle at 12% 10%, rgba(212, 227, 230, 0.92), transparent 30%),
-        radial-gradient(circle at 88% 4%, rgba(255, 255, 255, 0.86), transparent 34%),
-        linear-gradient(180deg, rgba(238, 244, 245, 0.98), rgba(238, 244, 245, 0.66));
+        linear-gradient(180deg,
+            rgba(23, 40, 46, 0.28) 0%,
+            rgba(23, 40, 46, 0.72) 58%,
+            rgba(23, 40, 46, 0.92) 100%),
+        url("../assets/images/contact/contact-hero-bg.jpg") center / cover no-repeat;
     pointer-events: none;
 }
 
@@ -55,6 +58,9 @@
 
 .contact-hero-copy h1 {
     max-width: 840px;
+    color: var(--color-white);
+    font-weight: 700;
+    text-wrap: balance;
 }
 
 .contact-hero-copy p {
@@ -62,7 +68,7 @@
     margin-top: 20px;
     font-size: clamp(17px, 1.25vw, 20px);
     line-height: 1.65;
-    color: var(--color-muted);
+    color: rgba(247, 250, 250, 0.84);
 }
 
 .contact-hero-actions {
@@ -70,6 +76,18 @@
     flex-wrap: wrap;
     gap: 12px;
     margin-top: 28px;
+}
+
+.contact-hero .section-kicker {
+    border-color: rgba(255, 255, 255, 0.18);
+    color: rgba(247, 250, 250, 0.92);
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+.contact-hero .section-kicker i {
+    color: var(--color-accent-soft);
 }
 
 /* =========================
@@ -706,21 +724,494 @@
 }
 
 .contact-page .contact-hero-copy {
-    max-width: 920px;
+    max-width: none;
 }
 
 .contact-page .contact-hero-copy h1 {
-    max-width: 920px;
+    max-width: none;
     font-size: clamp(42px, 5.2vw, 74px);
     line-height: 0.98;
     letter-spacing: -0.065em;
 }
 
 .contact-page .contact-hero-copy p {
-    max-width: 720px;
+    max-width: none;
 }
 
 .contact-page .contact-hero-card {
     max-width: 430px;
     justify-self: end;
+}
+
+
+/* ==========================================================
+   CONTACT MAIN — EQUAL CARD / FORM HEIGHT + SMALL TOP SPACING
+   вставить в самый конец css/contact.css
+   ========================================================== */
+
+/* меньше верхний отступ у контактных секций */
+.contact-page .contact-main.section,
+.contact-page .contact-area.section,
+.contact-page .contact-expect.section,
+.contact-page .contact-faq.section {
+    padding-top: clamp(18px, 3vw, 34px) !important;
+}
+
+/* карточка и форма становятся гармоничнее по размеру */
+.contact-page .contact-main-layout {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    align-items: stretch;
+    gap: clamp(20px, 4vw, 52px);
+}
+
+/* убираем sticky, чтобы карточка могла стать одной высоты с формой */
+.contact-page .contact-info-panel {
+    position: relative;
+    top: auto;
+    height: 100%;
+    min-height: 100%;
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* форма тоже растягивается в высоту */
+.contact-page .contact-form {
+    height: 100%;
+    align-self: stretch;
+}
+
+/* чтобы внутренности формы красиво заполняли высоту */
+.contact-page .contact-form .form-grid {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* кнопка аккуратно уходит вниз, если места больше */
+.contact-page .contact-form button[type="submit"] {
+    margin-top: auto;
+}
+
+/* делаем левую карточку чуть компактнее внутри */
+.contact-page .contact-info-panel {
+    padding: clamp(20px, 3vw, 32px);
+}
+
+.contact-page .contact-methods {
+    margin-top: 20px;
+}
+
+.contact-page .contact-small-note {
+    margin-top: 18px;
+}
+
+/* адаптив */
+@media (max-width: 1180px) {
+    .contact-page .contact-main-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-page .contact-info-panel,
+    .contact-page .contact-form {
+        height: auto;
+        min-height: auto;
+    }
+
+    .contact-page .contact-form button[type="submit"] {
+        margin-top: 0;
+    }
+}
+
+@media (max-width: 760px) {
+
+    .contact-page .contact-main.section,
+    .contact-page .contact-area.section,
+    .contact-page .contact-expect.section,
+    .contact-page .contact-faq.section {
+        padding-top: 18px !important;
+    }
+
+    .contact-page .contact-info-panel {
+        padding: 18px;
+    }
+}
+
+
+/* ==========================================================
+   CONTACT MAP — MAP LENS / REAL MAP
+   интересный вариант без цифр и без карточек
+   ========================================================== */
+
+.contact-page .contact-map-lens {
+    position: relative;
+    overflow: hidden;
+    padding: clamp(34px, 5vw, 72px) 0 !important;
+}
+
+.contact-page .contact-map-lens::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(circle at 76% 42%, rgba(212, 227, 230, 0.78), transparent 28%),
+        radial-gradient(circle at 12% 12%, rgba(255, 255, 255, 0.72), transparent 26%);
+    pointer-events: none;
+}
+
+.contact-map-lens .container-wide {
+    position: relative;
+    z-index: 2;
+}
+
+.map-lens-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(420px, 0.75fr);
+    gap: clamp(32px, 6vw, 90px);
+    align-items: center;
+}
+
+/* left text */
+
+.map-lens-copy {
+    max-width: none;
+}
+
+.map-lens-copy h2 {
+    max-width: none;
+    font-size: clamp(38px, 4.9vw, 74px);
+    line-height: 1.02;
+    letter-spacing: -0.06em;
+    text-wrap: balance;
+}
+
+.map-lens-copy p {
+    max-width: none;
+    margin-top: 18px;
+    font-size: clamp(16px, 1.25vw, 19px);
+    line-height: 1.65;
+    color: var(--color-muted);
+}
+
+/* address line */
+
+.map-lens-address {
+    display: inline-flex;
+    align-items: center;
+    gap: 11px;
+    margin-top: 26px;
+    padding: 13px 0;
+    border-top: 1px solid rgba(79, 117, 128, 0.22);
+    border-bottom: 1px solid rgba(79, 117, 128, 0.22);
+    font-size: 14px;
+    font-weight: 800;
+    line-height: 1.4;
+    color: var(--color-heading);
+}
+
+.map-lens-address i {
+    width: 18px;
+    height: 18px;
+    color: var(--color-accent);
+}
+
+/* icon signals */
+
+.map-lens-signals {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 24px;
+}
+
+.map-lens-signals span {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    min-height: 42px;
+    padding: 10px 13px;
+    border-bottom: 1px solid rgba(79, 117, 128, 0.24);
+    font-size: 13px;
+    font-weight: 850;
+    color: var(--color-text);
+    transition:
+        color var(--transition-base),
+        border-color var(--transition-base),
+        transform var(--transition-base);
+}
+
+.map-lens-signals span:hover {
+    transform: translateY(-2px);
+    color: var(--color-heading);
+    border-color: var(--color-accent);
+}
+
+.map-lens-signals i {
+    width: 16px;
+    height: 16px;
+    color: var(--color-accent);
+}
+
+/* map lens visual */
+
+.map-lens-visual {
+    position: relative;
+    display: grid;
+    place-items: center;
+    min-height: 520px;
+}
+
+.map-lens-orbit {
+    position: absolute;
+    width: min(100%, 520px);
+    aspect-ratio: 1;
+    border: 1px solid rgba(79, 117, 128, 0.16);
+    border-radius: 50%;
+}
+
+.map-lens-orbit::before,
+.map-lens-orbit::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.map-lens-orbit::before {
+    inset: 42px;
+    border: 1px dashed rgba(79, 117, 128, 0.18);
+}
+
+.map-lens-orbit::after {
+    width: 12px;
+    height: 12px;
+    right: 56px;
+    top: 92px;
+    background: var(--color-accent);
+    box-shadow:
+        -320px 170px 0 rgba(79, 117, 128, 0.34),
+        -80px 330px 0 rgba(79, 117, 128, 0.26);
+}
+
+/* real map circle */
+
+.map-lens-frame {
+    position: relative;
+    z-index: 2;
+    overflow: hidden;
+    width: min(100%, 430px);
+    aspect-ratio: 1;
+    border: 1px solid rgba(200, 214, 217, 0.88);
+    border-radius: 50%;
+    background: var(--color-surface);
+    box-shadow: 0 28px 80px rgba(23, 40, 46, 0.16);
+}
+
+.map-lens-frame iframe {
+    position: absolute;
+    inset: -20%;
+    width: 140%;
+    height: 140%;
+    border: 0;
+    filter: grayscale(0.22) saturate(0.84) contrast(1.06);
+}
+
+.map-lens-frame::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 96px;
+    pointer-events: none;
+    background:
+        radial-gradient(circle at 18% 18%, rgba(247, 250, 250, 0.92) 0%, rgba(247, 250, 250, 0.82) 42%, transparent 70%),
+        linear-gradient(180deg, rgba(247, 250, 250, 0.68), transparent 78%);
+}
+
+.map-lens-frame::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+        radial-gradient(circle at 50% 50%, transparent 42%, rgba(23, 40, 46, 0.18) 100%),
+        linear-gradient(180deg, rgba(23, 40, 46, 0.02), rgba(23, 40, 46, 0.12));
+}
+
+/* caption under lens */
+
+.map-lens-caption {
+    position: absolute;
+    left: 50%;
+    bottom: 12px;
+    z-index: 3;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    width: min(100%, 390px);
+    padding: 13px 15px;
+    border: 1px solid rgba(200, 214, 217, 0.82);
+    border-radius: 999px;
+    color: var(--color-muted);
+    background: rgba(255, 255, 255, 0.82);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    box-shadow: 0 18px 48px rgba(23, 40, 46, 0.12);
+    transform: translateX(-50%);
+}
+
+.map-lens-caption i {
+    width: 17px;
+    height: 17px;
+    flex: 0 0 17px;
+    margin-top: 2px;
+    color: var(--color-accent);
+}
+
+.map-lens-caption span {
+    font-size: 12.5px;
+    font-weight: 750;
+    line-height: 1.45;
+}
+
+/* hover */
+
+.map-lens-visual:hover .map-lens-frame {
+    box-shadow: 0 34px 96px rgba(23, 40, 46, 0.2);
+}
+
+.map-lens-visual:hover .map-lens-orbit {
+    border-color: rgba(79, 117, 128, 0.28);
+}
+
+/* responsive */
+
+@media (max-width: 980px) {
+    .map-lens-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .map-lens-visual {
+        min-height: 500px;
+        max-width: 560px;
+    }
+}
+
+@media (max-width: 640px) {
+    .map-lens-copy h2 {
+        font-size: clamp(34px, 10vw, 48px);
+    }
+
+    .map-lens-visual {
+        min-height: 430px;
+    }
+
+    .map-lens-frame {
+        width: min(100%, 340px);
+    }
+
+    .map-lens-orbit {
+        width: min(100%, 400px);
+    }
+
+    .map-lens-caption {
+        bottom: 0;
+        width: min(100%, 340px);
+        border-radius: 20px;
+    }
+
+    .map-lens-signals {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+
+    .map-lens-signals span {
+        padding-left: 0;
+    }
+}
+
+/* ==========================================================
+   MAP LENS — HOVER COLOR CHANGE
+   карта меняет настроение при наведении
+   ========================================================== */
+
+.map-lens-frame iframe {
+    transition:
+        filter 0.65s ease,
+        transform 0.65s ease;
+}
+
+/* базовое спокойное состояние карты */
+.map-lens-frame iframe {
+    filter: grayscale(0.28) saturate(0.78) contrast(1.04) brightness(0.98);
+}
+
+/* при наведении карта становится живее и холоднее */
+.map-lens-visual:hover .map-lens-frame iframe {
+    filter: grayscale(0.02) saturate(1.18) contrast(1.08) brightness(1.02) hue-rotate(8deg);
+    transform: scale(1.03);
+}
+
+/* рамка линзы тоже реагирует */
+.map-lens-visual:hover .map-lens-frame {
+    border-color: rgba(79, 117, 128, 0.48);
+    box-shadow:
+        0 34px 96px rgba(23, 40, 46, 0.22),
+        0 0 0 10px rgba(212, 227, 230, 0.32);
+}
+
+/* затемнение поверх карты становится мягче */
+.map-lens-frame::after {
+    transition: opacity 0.65s ease, background 0.65s ease;
+}
+
+.map-lens-visual:hover .map-lens-frame::after {
+    background:
+        radial-gradient(circle at 50% 50%, transparent 50%, rgba(23, 40, 46, 0.08) 100%),
+        linear-gradient(180deg, rgba(79, 117, 128, 0.04), rgba(23, 40, 46, 0.08));
+}
+
+/* орбита вокруг карты меняет цвет */
+.map-lens-orbit,
+.map-lens-orbit::before {
+    transition:
+        border-color 0.45s ease,
+        transform 0.45s ease;
+}
+
+.map-lens-visual:hover .map-lens-orbit {
+    border-color: rgba(79, 117, 128, 0.42);
+    transform: scale(1.02);
+}
+
+.map-lens-visual:hover .map-lens-orbit::before {
+    border-color: rgba(79, 117, 128, 0.36);
+}
+
+/* подпись под картой тоже становится активной */
+.map-lens-caption {
+    transition:
+        color 0.45s ease,
+        background 0.45s ease,
+        border-color 0.45s ease,
+        transform 0.45s ease,
+        box-shadow 0.45s ease;
+}
+
+.map-lens-visual:hover .map-lens-caption {
+    color: #ffffff;
+    border-color: rgba(255, 255, 255, 0.18);
+    background: rgba(79, 117, 128, 0.88);
+    transform: translateX(-50%) translateY(-4px);
+    box-shadow: 0 22px 58px rgba(23, 40, 46, 0.18);
+}
+
+.map-lens-visual:hover .map-lens-caption i {
+    color: #ffffff;
+}
+
+.map-lens-visual:hover .map-lens-caption span {
+    color: rgba(255, 255, 255, 0.86);
 }
