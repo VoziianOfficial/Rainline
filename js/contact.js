@@ -9,9 +9,29 @@
     document.addEventListener("DOMContentLoaded", initContactPage);
 
     function initContactPage() {
+        syncContactConfig();
         initContactHeroMotion();
         initContactMapMotion();
         initContactBlocksMotion();
+    }
+
+    function syncContactConfig() {
+        const config = window.SITE_CONFIG;
+
+        if (!config || !config.address || !config.address.full) {
+            return;
+        }
+
+        const iframe = document.querySelector("[data-map-embed]");
+
+        if (!iframe) {
+            return;
+        }
+
+        const query = encodeURIComponent(config.address.full);
+        iframe.setAttribute("src", `https://www.google.com/maps?q=${query}&output=embed`);
+        iframe.setAttribute("title", `Rainline reference map - ${config.address.city} ${config.address.state}`);
+        iframe.setAttribute("aria-label", `Map showing ${config.address.full}`);
     }
 
     /* ===============================

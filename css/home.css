@@ -1114,6 +1114,10 @@
         border-radius: 30px;
     }
 
+    .editorial-photo-small {
+        display: none;
+    }
+
     .editorial-photo img {
         min-height: 320px;
     }
