@@ -15,9 +15,17 @@
 |--------------------------------------------------------------------------
 */
 
+const companyName = "Rainline";
+
 window.SITE_CONFIG = {
-    companyName: "Rainline",
+    companyName,
     companyId: "RLN-GTR-7249",
+    brand: {
+        shortName: companyName,
+        tagline: "Compare local gutter providers with a cleaner request flow.",
+        shortTagline: "Gutter matching",
+        logoLabel: `${companyName} gutter provider matching platform`
+    },
 
     phone: "+1 888 742 0196",
     phoneHref: "+18887420196",
@@ -36,20 +44,14 @@ window.SITE_CONFIG = {
 
     serviceArea: "Independent gutter provider matching across the United States",
 
-    brand: {
-        shortName: "Rainline",
-        tagline: "Compare local gutter providers with a cleaner request flow.",
-        logoLabel: "Rainline gutter provider matching platform"
-    },
-
     footerText:
-        "Rainline is an independent gutter provider matching platform that helps homeowners compare local provider options for gutter installation, replacement, repair, cleaning, and related rainwater management requests.",
+        `${companyName} is an independent gutter provider matching platform that helps homeowners compare local provider options for gutter installation, replacement, repair, cleaning, and related rainwater management requests.`,
 
     disclaimer:
         "Disclaimer: This site is a free service to assist homeowners in connecting with local service providers. All contractors/providers are independent and this site does not warrant or guarantee any work performed. It is the responsibility of the homeowner to verify that the hired contractor furnishes the necessary license and insurance required for the work being performed. All persons depicted in a photo or video are actors or models and not contractors listed on this site.",
 
     legalNotice:
-        "Rainline is not a gutter contractor and does not perform gutter installation, repair, replacement, cleaning, inspections, or maintenance work directly. The platform helps homeowners submit project details and compare independent local provider options.",
+        `${companyName} is not a gutter contractor and does not perform gutter installation, repair, replacement, cleaning, inspections, or maintenance work directly. The platform helps homeowners submit project details and compare independent local provider options.`,
 
     navigation: [
         {
@@ -85,10 +87,10 @@ window.SITE_CONFIG = {
             heroTitle:
                 "Compare local gutter installation providers with a cleaner request process.",
             heroText:
-                "Rainline helps homeowners organize gutter installation requests and connect with independent local providers suited to the project details.",
+                `${companyName} helps homeowners organize gutter installation requests and connect with independent local providers suited to the project details.`,
             pageKicker: "Gutter installation matching",
             pageIntro:
-                "New gutter installation can depend on roofline shape, home size, material preferences, downspout placement, and local provider availability. Rainline helps homeowners begin with a clear request instead of contacting companies one by one.",
+                `New gutter installation can depend on roofline shape, home size, material preferences, downspout placement, and local provider availability. ${companyName} helps homeowners begin with a clear request instead of contacting companies one by one.`,
             evaluationPoints: [
                 "Ask which gutter materials and profiles are available for your home.",
                 "Review how downspout placement and drainage direction will be planned.",
@@ -110,10 +112,10 @@ window.SITE_CONFIG = {
             heroTitle:
                 "Find local gutter replacement providers for aging or damaged systems.",
             heroText:
-                "Use Rainline to compare independent provider options for replacing gutters that may be leaking, pulling away, rusting, or no longer moving water correctly.",
+                `Use ${companyName} to compare independent provider options for replacing gutters that may be leaking, pulling away, rusting, or no longer moving water correctly.`,
             pageKicker: "Gutter replacement matching",
             pageIntro:
-                "Gutter replacement decisions often depend on the condition of existing gutters, fascia boards, roof edge details, water flow problems, and whether downspouts also need updates. Rainline helps organize the first step so providers can better understand the request.",
+                `Gutter replacement decisions often depend on the condition of existing gutters, fascia boards, roof edge details, water flow problems, and whether downspouts also need updates. ${companyName} helps organize the first step so providers can better understand the request.`,
             evaluationPoints: [
                 "Check whether the provider will inspect the existing gutter line and fascia condition.",
                 "Ask whether replacement includes downspouts, outlets, elbows, and drainage extensions.",
@@ -135,7 +137,7 @@ window.SITE_CONFIG = {
             heroTitle:
                 "Compare gutter repair providers for leaks, loose sections, and overflow issues.",
             heroText:
-                "Rainline helps homeowners submit repair details and connect with independent local providers who may evaluate gutter problems.",
+                `${companyName} helps homeowners submit repair details and connect with independent local providers who may evaluate gutter problems.`,
             pageKicker: "Gutter repair matching",
             pageIntro:
                 "Gutter repair needs can range from small seam leaks to loose hangers, separated sections, slope problems, or overflow during rain. A structured request can help providers understand the issue before follow-up.",
@@ -160,10 +162,10 @@ window.SITE_CONFIG = {
             heroTitle:
                 "Connect with local gutter cleaning providers for clearer water flow.",
             heroText:
-                "Rainline helps homeowners compare independent provider options for gutter cleaning and related maintenance requests.",
+                `${companyName} helps homeowners compare independent provider options for gutter cleaning and related maintenance requests.`,
             pageKicker: "Gutter cleaning matching",
             pageIntro:
-                "Leaves, roof debris, pine needles, and blocked downspouts can affect how gutters move rainwater away from the home. Rainline helps homeowners start a simple request and compare local provider availability.",
+                `Leaves, roof debris, pine needles, and blocked downspouts can affect how gutters move rainwater away from the home. ${companyName} helps homeowners start a simple request and compare local provider availability.`,
             evaluationPoints: [
                 "Ask whether downspouts are included in the cleaning request.",
                 "Confirm whether debris removal and cleanup are part of the quote.",
@@ -231,9 +233,9 @@ window.SITE_CONFIG = {
     forms: {
         contactFormTitle: "Start a gutter provider matching request",
         contactFormText:
-            "Share a few details about your gutter project. Rainline may help connect you with independent local providers based on your request and service area.",
+            `Share a few details about your gutter project. ${companyName} may help connect you with independent local providers based on your request and service area.`,
         consentText:
-            "I agree to be contacted about my gutter request and understand that Rainline is a matching platform, not a direct contractor.",
+            `I agree to be contacted about my gutter request and understand that ${companyName} is a matching platform, not a direct contractor.`,
         successMessage:
             "Thank you. Your request has been prepared. A matching flow would continue from here.",
         errorMessage:
@@ -244,7 +246,7 @@ window.SITE_CONFIG = {
         storageKey: "rainline_policy_choice",
         title: "Privacy & site policies",
         text:
-            "Rainline uses essential site functionality and policy notices to support a clear provider-matching experience. Please review the legal pages before continuing.",
+            `${companyName} uses essential site functionality and policy notices to support a clear provider-matching experience. Please review the legal pages before continuing.`,
         acceptLabel: "Accept",
         declineLabel: "Decline",
         links: [
@@ -265,9 +267,9 @@ window.SITE_CONFIG = {
 
     faq: [
         {
-            question: "Is Rainline a gutter contractor?",
+            question: `Is ${companyName} a gutter contractor?`,
             answer:
-                "No. Rainline is not a gutter contractor and does not perform gutter installation, replacement, repair, cleaning, or maintenance directly. Rainline helps homeowners connect with independent local providers."
+                `No. ${companyName} is not a gutter contractor and does not perform gutter installation, replacement, repair, cleaning, or maintenance directly. ${companyName} helps homeowners connect with independent local providers.`
         },
         {
             question: "How do I compare local gutter providers?",
@@ -287,7 +289,7 @@ window.SITE_CONFIG = {
         {
             question: "How do I know if a provider serves my area?",
             answer:
-                "Provider availability can vary by ZIP code, city, and project type. Rainline helps organize your request so relevant local provider options may be identified."
+                `Provider availability can vary by ZIP code, city, and project type. ${companyName} helps organize your request so relevant local provider options may be identified.`
         }
     ],
 
@@ -303,7 +305,7 @@ window.SITE_CONFIG = {
             {
                 label: "Platform model",
                 value: "Independent",
-                text: "Rainline helps connect homeowners with local providers."
+                text: `${companyName} helps connect homeowners with local providers.`
             },
             {
                 label: "User focus",

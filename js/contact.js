@@ -30,7 +30,10 @@
 
         const query = encodeURIComponent(config.address.full);
         iframe.setAttribute("src", `https://www.google.com/maps?q=${query}&output=embed`);
-        iframe.setAttribute("title", `Rainline reference map - ${config.address.city} ${config.address.state}`);
+        iframe.setAttribute(
+            "title",
+            `${config.companyName} reference map - ${config.address.city} ${config.address.state}`
+        );
         iframe.setAttribute("aria-label", `Map showing ${config.address.full}`);
     }
 

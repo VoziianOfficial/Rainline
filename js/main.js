@@ -51,6 +51,7 @@
 
         syncFixedHeaderOffset();
         injectConfigValues();
+        autoReplaceCompanyNameInLegalPages();
         setActiveNavigation();
         initHeaderScroll();
         initMobileMenu();
@@ -125,37 +126,41 @@
        =============================== */
 
     function getLogoMarkup() {
-        return `
-            <a href="index.html" class="brand" aria-label="${escapeHtml(config.brand.logoLabel)}">
-                <span class="brand-mark" aria-hidden="true">
-                    <svg viewBox="0 0 64 64" fill="none" role="img">
-                        <path
-                            d="M10 36.5L31.4 17.5C32.2 16.8 33.4 16.8 34.2 17.5L55 36.5"
-                            stroke="currentColor"
-                            stroke-width="3.4"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                        />
-                        <path
-                            d="M17.5 36.5H51"
-                            stroke="currentColor"
-                            stroke-width="3.4"
-                            stroke-linecap="round"
-                        />
-                        <path
-                            d="M39.8 42.5C39.8 48.2 36 51.7 31.9 51.7C27.8 51.7 24.3 48.2 24.3 44.3C24.3 38.9 31.9 30.7 31.9 30.7C31.9 30.7 39.8 38.3 39.8 42.5Z"
-                            fill="currentColor"
-                            opacity="0.9"
-                        />
-                    </svg>
-                </span>
+        const brandName = config.brand?.shortName || config.companyName;
+        const brandTagline = config.brand?.shortTagline || config.brand?.tagline || "Gutter matching";
+        const logoLabel = config.brand?.logoLabel || `${brandName} home`;
 
-                <span class="brand-copy">
-                    <span class="brand-name" data-company-name>${escapeHtml(config.companyName)}</span>
-                    <span class="brand-tagline">Gutter matching</span>
-                </span>
-            </a>
-        `;
+        return `
+        <a href="index.html" class="brand" aria-label="${escapeHtml(logoLabel)}">
+            <span class="brand-mark" aria-hidden="true">
+                <svg viewBox="0 0 64 64" fill="none" role="img">
+                    <path
+                        d="M10 36.5L31.4 17.5C32.2 16.8 33.4 16.8 34.2 17.5L55 36.5"
+                        stroke="currentColor"
+                        stroke-width="3.4"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    />
+                    <path
+                        d="M17.5 36.5H51"
+                        stroke="currentColor"
+                        stroke-width="3.4"
+                        stroke-linecap="round"
+                    />
+                    <path
+                        d="M39.8 42.5C39.8 48.2 36 51.7 31.9 51.7C27.8 51.7 24.3 48.2 24.3 44.3C24.3 38.9 31.9 30.7 31.9 30.7C31.9 30.7 39.8 38.3 39.8 42.5Z"
+                        fill="currentColor"
+                        opacity="0.9"
+                    />
+                </svg>
+            </span>
+
+            <span class="brand-copy">
+                <span class="brand-name">${escapeHtml(brandName)}</span>
+                <span class="brand-tagline">${escapeHtml(brandTagline)}</span>
+            </span>
+        </a>
+    `;
     }
 
     /* ===============================
@@ -219,7 +224,7 @@
                     <a
                         href="mailto:${escapeHtml(config.email)}"
                         class="header-mail-cta"
-                        aria-label="Write to Rainline by email"
+                        aria-label="Write to ${escapeHtml(config.companyName)} by email"
                         data-email-link
                     >
                         ${createIcon("mail")}
@@ -237,7 +242,7 @@
                     <a
                         href="tel:${escapeHtml(config.phoneHref)}"
                         class="mobile-phone-cta"
-                        aria-label="Call Rainline"
+                        aria-label="Call ${escapeHtml(config.companyName)}"
                         data-phone-link
                     >
                         ${createIcon("phone")}
@@ -569,6 +574,71 @@
         qsa("[data-current-year]").forEach((element) => {
             element.textContent = new Date().getFullYear();
         });
+    }
+
+    function autoReplaceCompanyNameInLegalPages() {
+        if (!document.body.classList.contains("legal-page")) {
+            return;
+        }
+
+        const companyName = config.companyName;
+
+        if (!companyName || typeof companyName !== "string") {
+            return;
+        }
+
+        const roots = qsa(".legal-hero, .legal-document, .legal-cta-shell");
+
+        if (!roots.length) {
+            return;
+        }
+
+        const replaceInRoot = (root) => {
+            const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
+                acceptNode(node) {
+                    if (!node || !node.parentElement) {
+                        return NodeFilter.FILTER_REJECT;
+                    }
+
+                    const parent = node.parentElement;
+
+                    if (parent.closest("script, style, noscript")) {
+                        return NodeFilter.FILTER_REJECT;
+                    }
+
+                    if (!node.nodeValue || !node.nodeValue.includes("Rainline")) {
+                        return NodeFilter.FILTER_REJECT;
+                    }
+
+                    return NodeFilter.FILTER_ACCEPT;
+                }
+            });
+
+            const nodes = [];
+
+            while (walker.nextNode()) {
+                nodes.push(walker.currentNode);
+            }
+
+            nodes.forEach((textNode) => {
+                const original = textNode.nodeValue;
+
+                if (!original) {
+                    return;
+                }
+
+                const next = original
+                    .replaceAll("Rainline’s", `${companyName}’s`)
+                    .replaceAll("Rainline's", `${companyName}'s`)
+                    .replaceAll("Rainline", companyName);
+
+                if (next !== original) {
+                    textNode.nodeValue = next;
+                }
+            });
+        };
+
+        roots.forEach(replaceInRoot);
     }
 
     /* ===============================
