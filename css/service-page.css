@@ -53,11 +53,12 @@
 }
 
 .service-hero-copy {
-    max-width: 750px;
+    max-width: min(100%, 980px);
 }
 
 .service-hero-copy h1 {
-    max-width: 860px;
+    max-width: none;
+    text-wrap: balance;
 }
 
 .service-hero-copy p {
@@ -751,5 +752,502 @@
     .service-overview-list article {
         padding: 16px;
         border-radius: 22px;
+    }
+}
+
+/* ==========================================================
+   SERVICE HERO — CINEMATIC FULL PHOTO
+   дорогой формат без карточек и без повторов
+   ========================================================== */
+
+.service-cinematic-hero {
+    position: relative;
+    min-height: clamp(590px, calc(100svh - var(--header-height) - 34px), 760px);
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    padding: 0 !important;
+    color: #ffffff;
+    background: #17282e;
+}
+
+.service-cinematic-hero::before,
+.service-cinematic-hero::after {
+    display: none !important;
+}
+
+.service-cinematic-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+}
+
+.service-cinematic-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 44%;
+    display: block;
+    transform: scale(1.02);
+    transition: transform 1100ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.service-cinematic-hero:hover .service-cinematic-bg img {
+    transform: scale(1.055);
+}
+
+.service-cinematic-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background:
+        linear-gradient(180deg,
+            rgba(23, 40, 46, 0.28) 0%,
+            rgba(23, 40, 46, 0.54) 44%,
+            rgba(23, 40, 46, 0.82) 100%),
+        radial-gradient(circle at center,
+            rgba(23, 40, 46, 0.06) 0%,
+            rgba(23, 40, 46, 0.46) 68%,
+            rgba(23, 40, 46, 0.76) 100%);
+}
+
+.service-cinematic-hero .container-wide {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+}
+
+.service-cinematic-layout {
+    position: relative;
+    display: grid;
+    grid-template-columns: 140px minmax(0, 1fr);
+    grid-template-rows: 1fr auto;
+    gap: 26px;
+    min-height: clamp(590px, calc(100svh - var(--header-height) - 34px), 760px);
+    padding: clamp(58px, 8vw, 96px) 0 clamp(20px, 3vw, 34px);
+}
+
+/* side label */
+
+.service-cinematic-side {
+    grid-row: 1 / 3;
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 8px;
+    padding-right: 26px;
+    border-right: 1px solid rgba(255, 255, 255, 0.18);
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+}
+
+.service-cinematic-side span {
+    font-size: 11px;
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(212, 227, 230, 0.86);
+}
+
+.service-cinematic-side strong {
+    font-size: 13px;
+    font-weight: 850;
+    line-height: 1;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(247, 250, 250, 0.92);
+}
+
+/* center content */
+
+.service-cinematic-content {
+    align-self: center;
+    width: min(100%, 1320px);
+    margin-inline: auto;
+    text-align: center;
+}
+
+.service-cinematic-content .section-kicker {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    width: fit-content;
+    margin: 0 auto 18px;
+    padding: 10px 15px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 999px;
+    color: rgba(247, 250, 250, 0.94);
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+.service-cinematic-content .section-kicker i {
+    width: 16px;
+    height: 16px;
+    color: var(--color-accent-soft);
+}
+
+.service-cinematic-content h1 {
+    max-width: 1320px;
+    margin: 0 auto;
+    color: #ffffff;
+    font-size: clamp(46px, 6.4vw, 92px);
+    line-height: 0.96;
+    letter-spacing: -0.07em;
+    text-wrap: balance;
+    text-shadow: 0 18px 48px rgba(0, 0, 0, 0.24);
+}
+
+.service-cinematic-content p {
+    max-width: 1120px;
+    margin: 22px auto 0;
+    font-size: clamp(16px, 1.3vw, 20px);
+    line-height: 1.64;
+    color: rgba(247, 250, 250, 0.84);
+    text-wrap: balance;
+}
+
+.service-cinematic-actions {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 28px;
+}
+
+.service-cinematic-light-btn {
+    color: #ffffff;
+    border-color: rgba(255, 255, 255, 0.24);
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+.service-cinematic-light-btn:hover {
+    color: var(--color-heading);
+    border-color: #ffffff;
+    background: #ffffff;
+}
+
+/* bottom information */
+
+.service-cinematic-bottom {
+    grid-column: 2;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(320px, 0.62fr);
+    gap: clamp(18px, 4vw, 56px);
+    align-items: start;
+    padding-top: 18px;
+    border-top: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.service-cinematic-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.service-cinematic-tags span {
+    display: inline-flex;
+    align-items: center;
+    min-height: 38px;
+    padding: 9px 0;
+    border-bottom: 1px solid rgba(212, 227, 230, 0.38);
+    font-size: 13px;
+    font-weight: 850;
+    line-height: 1.2;
+    color: rgba(247, 250, 250, 0.86);
+    transition:
+        color var(--transition-base),
+        border-color var(--transition-base),
+        transform var(--transition-base);
+}
+
+.service-cinematic-tags span:not(:last-child)::after {
+    content: "•";
+    margin-left: 10px;
+    color: rgba(212, 227, 230, 0.46);
+}
+
+.service-cinematic-tags span:hover {
+    transform: translateY(-2px);
+    color: #ffffff;
+    border-color: var(--color-accent-soft);
+}
+
+.service-cinematic-note {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    color: rgba(247, 250, 250, 0.72);
+}
+
+.service-cinematic-note i {
+    width: 18px;
+    height: 18px;
+    flex: 0 0 18px;
+    margin-top: 2px;
+    color: var(--color-accent-soft);
+}
+
+.service-cinematic-note span {
+    font-size: 12.5px;
+    font-weight: 750;
+    line-height: 1.58;
+}
+
+/* responsive */
+
+@media (max-width: 980px) {
+    .service-cinematic-layout {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto;
+    }
+
+    .service-cinematic-side {
+        grid-row: auto;
+        writing-mode: horizontal-tb;
+        transform: none;
+        flex-direction: row;
+        justify-content: flex-start;
+        padding-right: 0;
+        padding-bottom: 14px;
+        border-right: 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+    }
+
+    .service-cinematic-content {
+        text-align: left;
+        margin-inline: 0;
+    }
+
+    .service-cinematic-content .section-kicker,
+    .service-cinematic-content h1,
+    .service-cinematic-content p {
+        margin-inline: 0;
+    }
+
+    .service-cinematic-actions {
+        justify-content: flex-start;
+    }
+
+    .service-cinematic-bottom {
+        grid-column: auto;
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+}
+
+@media (max-width: 760px) {
+    .service-cinematic-hero {
+        min-height: auto;
+    }
+
+    .service-cinematic-layout {
+        min-height: auto;
+        padding: 54px 0 22px;
+    }
+
+    .service-cinematic-content h1 {
+        font-size: clamp(36px, 10.8vw, 54px);
+        line-height: 0.99;
+    }
+
+    .service-cinematic-content p {
+        margin-top: 16px;
+        font-size: 15px;
+        line-height: 1.58;
+    }
+
+    .service-cinematic-actions {
+        display: grid;
+        grid-template-columns: 1fr;
+        width: min(100%, 420px);
+        margin-top: 22px;
+    }
+
+    .service-cinematic-tags {
+        gap: 6px 10px;
+    }
+
+    .service-cinematic-tags span {
+        min-height: 32px;
+        font-size: 12.5px;
+    }
+
+    .service-cinematic-note span {
+        font-size: 12px;
+    }
+}
+
+/* ==========================================================
+   SERVICE HERO — REPAIR VARIATION
+   немного отличается от installation
+   ========================================================== */
+
+.service-cinematic-hero-repair .service-cinematic-bg img {
+    object-position: center 42%;
+}
+
+.service-cinematic-layout-repair {
+    grid-template-columns: 120px minmax(0, 0.92fr);
+}
+
+.service-cinematic-content-repair {
+    width: min(100%, 880px);
+    margin-inline: 0;
+    text-align: left;
+}
+
+.service-cinematic-content-repair .section-kicker,
+.service-cinematic-content-repair h1,
+.service-cinematic-content-repair p {
+    margin-inline: 0;
+}
+
+.service-cinematic-content-repair h1 {
+    max-width: 900px;
+}
+
+.service-cinematic-content-repair p {
+    max-width: 690px;
+}
+
+.service-cinematic-content-repair .service-cinematic-actions {
+    justify-content: flex-start;
+}
+
+/* small extra line for repair */
+.service-cinematic-mini-note {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    margin-top: 18px;
+    padding: 10px 0 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.16);
+    color: rgba(247, 250, 250, 0.8);
+}
+
+.service-cinematic-mini-note i {
+    width: 16px;
+    height: 16px;
+    color: var(--color-accent-soft);
+}
+
+.service-cinematic-mini-note span {
+    font-size: 12.5px;
+    font-weight: 750;
+    line-height: 1.45;
+}
+
+/* bottom repair line */
+.service-cinematic-bottom-repair {
+    grid-template-columns: minmax(0, 1fr) minmax(340px, 0.58fr);
+}
+
+.service-cinematic-tags-repair {
+    gap: 12px 14px;
+}
+
+.service-cinematic-tags-repair span {
+    min-height: 34px;
+    padding: 6px 0;
+}
+
+/* subtle hover */
+.service-cinematic-hero-repair:hover .service-cinematic-overlay {
+    background:
+        linear-gradient(180deg,
+            rgba(23, 40, 46, 0.24) 0%,
+            rgba(23, 40, 46, 0.52) 44%,
+            rgba(23, 40, 46, 0.84) 100%),
+        radial-gradient(circle at center,
+            rgba(23, 40, 46, 0.04) 0%,
+            rgba(23, 40, 46, 0.42) 68%,
+            rgba(23, 40, 46, 0.74) 100%);
+}
+
+@media (max-width: 980px) {
+    .service-cinematic-layout-repair {
+        grid-template-columns: 1fr;
+    }
+
+    .service-cinematic-content-repair {
+        width: 100%;
+    }
+
+    .service-cinematic-bottom-repair {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 760px) {
+    .service-cinematic-content-repair {
+        text-align: left;
+    }
+
+    .service-cinematic-content-repair .service-cinematic-actions {
+        justify-content: stretch;
+    }
+
+    .service-cinematic-mini-note {
+        display: flex;
+        align-items: flex-start;
+    }
+
+    .service-cinematic-tags-repair {
+        gap: 6px 10px;
+    }
+}
+
+
+/* ==========================================================
+   SERVICE HERO — KEEP REPLACEMENT CONSISTENT
+   убирает слишком сильные отличия replacement hero
+   ========================================================== */
+
+.service-cinematic-hero-replacement .service-cinematic-bg img {
+    object-position: center 40%;
+}
+
+.service-cinematic-hero-replacement .service-cinematic-content {
+    text-align: center;
+    margin-inline: auto;
+}
+
+.service-cinematic-hero-replacement .service-cinematic-content .section-kicker,
+.service-cinematic-hero-replacement .service-cinematic-content h1,
+.service-cinematic-hero-replacement .service-cinematic-content p {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.service-cinematic-hero-replacement .service-cinematic-actions {
+    justify-content: center;
+}
+
+.service-cinematic-hero-replacement .service-cinematic-tags {
+    justify-content: flex-start;
+}
+
+@media (max-width: 980px) {
+    .service-cinematic-hero-replacement .service-cinematic-content {
+        text-align: left;
+        margin-inline: 0;
+    }
+
+    .service-cinematic-hero-replacement .service-cinematic-content .section-kicker,
+    .service-cinematic-hero-replacement .service-cinematic-content h1,
+    .service-cinematic-hero-replacement .service-cinematic-content p {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .service-cinematic-hero-replacement .service-cinematic-actions {
+        justify-content: flex-start;
     }
 }

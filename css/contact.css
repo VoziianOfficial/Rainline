@@ -568,7 +568,7 @@
     opacity: 1;
 }
 
-.contact-expect-grid span {
+.contact-expect-grid article>span {
     display: grid;
     place-items: center;
     width: 52px;
@@ -580,6 +580,17 @@
     font-weight: 800;
     color: var(--color-accent);
     background: var(--color-accent-soft);
+    box-shadow: 0 10px 22px rgba(23, 40, 46, 0.06);
+    transition:
+        transform var(--transition-base),
+        background var(--transition-base),
+        box-shadow var(--transition-base);
+}
+
+.contact-expect-grid article:hover>span {
+    transform: translateY(-2px) rotate(-2deg);
+    background: rgba(212, 227, 230, 0.94);
+    box-shadow: 0 16px 36px rgba(23, 40, 46, 0.12);
 }
 
 .contact-expect-grid h3 {
@@ -736,7 +747,7 @@
         border-radius: 18px;
     }
 
-    .contact-expect-grid span {
+    .contact-expect-grid article>span {
         width: 48px;
         height: 48px;
         border-radius: 17px;

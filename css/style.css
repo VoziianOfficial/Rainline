@@ -135,6 +135,24 @@ a {
     text-decoration: none;
 }
 
+/* Global icon hover behavior */
+:where(i[data-lucide], .lucide) {
+    color: inherit;
+    stroke: currentColor;
+    transition:
+        color var(--transition-base),
+        stroke var(--transition-base),
+        transform var(--transition-base);
+}
+
+:where(i[data-lucide], .lucide):hover {
+    color: var(--color-accent-hover);
+}
+
+:where(a, button, [role="button"], .btn, article, .section-kicker):hover :where(i[data-lucide], .lucide) {
+    color: var(--color-accent-hover);
+}
+
 ul,
 ol {
     margin: 0;
@@ -240,6 +258,10 @@ p {
     letter-spacing: 0.16em;
     text-transform: uppercase;
     color: var(--color-accent);
+    transition:
+        transform var(--transition-base),
+        opacity var(--transition-base),
+        color var(--transition-base);
 }
 
 .section-kicker i,
@@ -248,6 +270,32 @@ p {
     width: 15px;
     height: 15px;
     stroke-width: 2;
+}
+
+.section-kicker i,
+.section-kicker svg,
+.section-eyebrow i,
+.section-eyebrow svg,
+.eyebrow i,
+.eyebrow svg {
+    transition:
+        transform var(--transition-base),
+        color var(--transition-base);
+}
+
+.section-kicker:hover,
+.section-eyebrow:hover,
+.eyebrow:hover {
+    transform: translateY(-1px);
+}
+
+.section-kicker:hover i,
+.section-kicker:hover svg,
+.section-eyebrow:hover i,
+.section-eyebrow:hover svg,
+.eyebrow:hover i,
+.eyebrow:hover svg {
+    transform: rotate(-6deg) scale(1.05);
 }
 
 .section-title {

@@ -573,6 +573,17 @@
     font-weight: 800;
     color: var(--color-accent);
     background: var(--color-accent-soft);
+    box-shadow: 0 10px 22px rgba(23, 40, 46, 0.06);
+    transition:
+        transform var(--transition-base),
+        background var(--transition-base),
+        box-shadow var(--transition-base);
+}
+
+.process-steps article:hover>span {
+    transform: translateY(-2px) rotate(-2deg);
+    background: rgba(212, 227, 230, 0.94);
+    box-shadow: 0 16px 36px rgba(23, 40, 46, 0.1);
 }
 
 .process-steps h3 {

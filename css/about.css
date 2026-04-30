@@ -844,6 +844,14 @@
     line-height: 0.9;
     letter-spacing: -0.08em;
     color: rgba(79, 117, 128, 0.32);
+    transition:
+        transform var(--transition-base),
+        color var(--transition-base);
+}
+
+.about-hero-clean-strip article:hover span {
+    transform: translateY(-2px);
+    color: rgba(79, 117, 128, 0.5);
 }
 
 .about-hero-clean-strip strong {
