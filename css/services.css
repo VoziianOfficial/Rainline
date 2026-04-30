@@ -313,6 +313,7 @@
    ========================= */
 
 .services-categories {
+    margin-top: clamp(10px, 1.6vw, 20px);
     overflow: hidden;
 }
 
