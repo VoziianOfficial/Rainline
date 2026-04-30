@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta name="description"
+        content="Rainline helps homeowners compare local gutter providers for installation, replacement, repair, and cleaning requests across the United States." />
+
+    <title>Rainline | Compare Local Gutter Providers</title>
+
+    <link rel="icon" type="image/svg+xml" href="./assets/images/favicon.svg" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Syne:wght@600;700;800&display=swap"
+        rel="stylesheet" />
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <link rel="stylesheet" href="./css/style.css" />
+</head>
+
+<body class="home-page" data-has-faq-schema>
+    <a class="skip-link" href="#mainContent">Skip to content</a>
+
+    <div data-site-header></div>
+
+    <main class="main" id="mainContent">
+        <!-- HERO -->
+        <section class="home-hero section" aria-labelledby="homeHeroTitle">
+            <div class="home-hero-bg" aria-hidden="true"></div>
+
+            <div class="container-wide">
+                <div class="home-hero-shell">
+                    <div class="home-hero-content reveal-up">
+                        <span class="section-kicker">
+                            <i data-lucide="cloud-rain"></i>
+                            Gutter provider matching platform
+                        </span>
+
+                        <h1 id="homeHeroTitle">
+                            Compare local gutter providers with a cleaner request flow.
+                        </h1>
+
+                        <p>
+                            Rainline helps homeowners begin gutter installation, replacement, repair, and cleaning
+                            requests by connecting them with independent local provider options.
+                        </p>
+
+                        <div class="home-hero-actions">
+                            <a href="contact.html" class="btn">
+                                Start a request
+                                <i data-lucide="arrow-right"></i>
+                            </a>
+
+                            <a href="tel:+18887420196" class="btn btn-secondary" data-phone-link>
+                                <i data-lucide="phone"></i>
+                                Call Rainline
+                            </a>
+                        </div>
+
+                        <div class="hero-notice">
+                            <i data-lucide="shield-check"></i>
+                            <span>
+                                Rainline is not a gutter contractor. Homeowners should verify provider license,
+                                insurance, pricing, and work scope directly before hiring.
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="home-hero-visual reveal-fade" aria-label="Gutter matching visual composition">
+                        <div class="hero-photo-card hero-photo-main">
+                            <img src="./assets/images/home/rainline-hero-gutter.jpg"
+                                alt="Modern home exterior with clean rain gutters" />
+                            <span class="hero-photo-label">
+                                <i data-lucide="droplets"></i>
+                                Rain-ready exterior request
+                            </span>
+                        </div>
+
+                        <div class="hero-floating-card hero-floating-top float-soft">
+                            <i data-lucide="search-check"></i>
+                            <div>
+                                <strong>Compare providers</strong>
+                                <span>Start with project details and service area.</span>
+                            </div>
+                        </div>
+
+                        <div class="hero-floating-card hero-floating-bottom">
+                            <i data-lucide="clipboard-list"></i>
+                            <div>
+                                <strong>Quote-ready flow</strong>
+                                <span>Organize what providers may need to review.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- INTRO STRIP -->
+        <section class="home-intro-strip section-sm" aria-label="Rainline platform highlights">
+            <div class="container-wide">
+                <div class="intro-strip-inner reveal-up">
+                    <article>
+                        <i data-lucide="home"></i>
+                        <span>Homeowner request</span>
+                        <strong>Describe the gutter project</strong>
+                    </article>
+
+                    <article>
+                        <i data-lucide="map-pin"></i>
+                        <span>Local availability</span>
+                        <strong>Match by area and service type</strong>
+                    </article>
+
+                    <article>
+                        <i data-lucide="shield-check"></i>
+                        <span>Independent providers</span>
+                        <strong>Compare before choosing</strong>
+                    </article>
+
+                    <article>
+                        <i data-lucide="phone"></i>
+                        <span>Simple follow-up</span>
+                        <strong>Continue with provider quotes</strong>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- SERVICES -->
+        <section class="home-services section" aria-labelledby="homeServicesTitle">
+            <div class="container-wide">
+                <div class="section-split-head">
+                    <div class="reveal-line">
+                        <span class="section-kicker">
+                            <i data-lucide="wrench"></i>
+                            Service categories
+                        </span>
+
+                        <h2 id="homeServicesTitle">
+                            Four clear ways to begin a gutter request.
+                        </h2>
+                    </div>
+
+                    <p class="section-lead reveal-up">
+                        Choose the service category that best fits your project. Rainline helps structure your request
+                        so independent local providers can better understand the work type.
+                    </p>
+                </div>
+
+                <div class="service-card-grid" data-service-cards></div>
+            </div>
+        </section>
+
+        <!-- HOW IT WORKS -->
+        <section class="home-process section" aria-labelledby="homeProcessTitle">
+            <div class="container">
+                <div class="process-panel">
+                    <div class="process-copy reveal-up">
+                        <span class="section-kicker">
+                            <i data-lucide="clipboard-list"></i>
+                            How Rainline works
+                        </span>
+
+                        <h2 id="homeProcessTitle">
+                            A calmer first step before choosing a gutter company.
+                        </h2>
+
+                        <p>
+                            Instead of searching through scattered listings, homeowners can start with one focused
+                            request. Rainline helps organize the project type, location, and basic details before
+                            provider follow-up.
+                        </p>
+
+                        <a href="contact.html" class="btn btn-ghost">
+                            Request provider options
+                            <i data-lucide="arrow-right"></i>
+                        </a>
+                    </div>
+
+                    <div class="process-steps reveal-up">
+                        <article>
+                            <span>01</span>
+                            <div>
+                                <h3>Select the gutter request type</h3>
+                                <p>
+                                    Choose installation, replacement, repair, or cleaning depending on the issue or
+                                    project goal.
+                                </p>
+                            </div>
+                        </article>
+
+                        <article>
+                            <span>02</span>
+                            <div>
+                                <h3>Share location and project notes</h3>
+                                <p>
+                                    Add ZIP code, home details, visible gutter problems, or timing needs so the request
+                                    is easier to understand.
+                                </p>
+                            </div>
+                        </article>
+
+                        <article>
+                            <span>03</span>
+                            <div>
+                                <h3>Compare independent providers</h3>
+                                <p>
+                                    Review provider availability, quote details, service terms, and credentials directly
+                                    before moving forward.
+                                </p>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- EDITORIAL PHOTO SECTION -->
+        <section class="home-editorial section" aria-labelledby="homeEditorialTitle">
+            <div class="container-wide">
+                <div class="editorial-grid">
+                    <div class="editorial-copy reveal-up">
+                        <span class="section-kicker">
+                            <i data-lucide="droplets"></i>
+                            Rainwater context
+                        </span>
+
+                        <h2 id="homeEditorialTitle">
+                            Gutter projects are easier to compare when the request is specific.
+                        </h2>
+
+                        <p>
+                            Gutter needs can vary by roofline, home height, material preference, drainage direction,
+                            downspout location, debris buildup, and visible damage. A clear request helps homeowners
+                            ask better questions before selecting a provider.
+                        </p>
+
+                        <ul class="editorial-checks">
+                            <li>
+                                <i data-lucide="circle-check"></i>
+                                Mention whether water overflows, leaks, or pools near the home.
+                            </li>
+                            <li>
+                                <i data-lucide="circle-check"></i>
+                                Note if the request is for new gutters, cleaning, repair, or replacement.
+                            </li>
+                            <li>
+                                <i data-lucide="circle-check"></i>
+                                Ask providers about scope, materials, cleanup, timing, and quote terms.
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="editorial-media reveal-fade">
+                        <figure class="editorial-photo editorial-photo-large">
+                            <img src="./assets/images/home/gutter-detail-large.jpg"
+                                alt="Close view of a modern gutter system on a home exterior" />
+                        </figure>
+
+                        <figure class="editorial-photo editorial-photo-small">
+                            <img src="./assets/images/home/gutter-rain-detail.jpg"
+                                alt="Rainwater flowing through a clean gutter system" />
+                        </figure>
+
+                        <div class="editorial-note">
+                            <i data-lucide="shield-check"></i>
+                            <span>
+                                Always verify final provider details before hiring.
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SWIPER -->
+        <section class="home-gallery section" aria-labelledby="homeGalleryTitle">
+            <div class="container-wide">
+                <div class="section-split-head">
+                    <div class="reveal-line">
+                        <span class="section-kicker">
+                            <i data-lucide="image"></i>
+                            Project request examples
+                        </span>
+
+                        <h2 id="homeGalleryTitle">
+                            Different gutter requests need different provider conversations.
+                        </h2>
+                    </div>
+
+                    <p class="section-lead reveal-up">
+                        The visual request flow below is styled like a premium editorial board — compact, clean, and
+                        easy to scan on desktop, tablet, and mobile.
+                    </p>
+                </div>
+
+                <div class="swiper home-gallery-swiper reveal-up">
+                    <div class="swiper-wrapper">
+                        <article class="swiper-slide gallery-slide">
+                            <img src="./assets/images/home/gallery-installation.jpg"
+                                alt="Exterior home gutter installation detail" />
+                            <div>
+                                <span>Installation</span>
+                                <h3>New gutter system request</h3>
+                                <p>Compare providers for material options, downspout planning, and installation scope.
+                                </p>
+                            </div>
+                        </article>
+
+                        <article class="swiper-slide gallery-slide">
+                            <img src="./assets/images/home/gallery-replacement.jpg"
+                                alt="Older gutter system needing replacement" />
+                            <div>
+                                <span>Replacement</span>
+                                <h3>Aging or damaged gutters</h3>
+                                <p>Ask whether the quote includes gutter sections, downspouts, hardware, and cleanup.
+                                </p>
+                            </div>
+                        </article>
+
+                        <article class="swiper-slide gallery-slide">
+                            <img src="./assets/images/home/gallery-repair.jpg"
+                                alt="Gutter repair area near roof edge" />
+                            <div>
+                                <span>Repair</span>
+                                <h3>Leaks, loose sections, overflow</h3>
+                                <p>Share where the issue appears and whether photos can help providers review it.</p>
+                            </div>
+                        </article>
+
+                        <article class="swiper-slide gallery-slide">
+                            <img src="./assets/images/home/gallery-cleaning.jpg"
+                                alt="Gutter cleaning and rainwater maintenance" />
+                            <div>
+                                <span>Cleaning</span>
+                                <h3>Debris and seasonal buildup</h3>
+                                <p>Confirm whether downspouts, debris removal, and cleanup are included.</p>
+                            </div>
+                        </article>
+                    </div>
+
+                    <div class="swiper-pagination"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROVIDER EVALUATION -->
+        <section class="home-evaluate section" aria-labelledby="homeEvaluateTitle">
+            <div class="container">
+                <div class="evaluate-shell">
+                    <div class="evaluate-head reveal-up">
+                        <span class="section-kicker">
+                            <i data-lucide="search-check"></i>
+                            Before choosing
+                        </span>
+
+                        <h2 id="homeEvaluateTitle">
+                            What homeowners should compare directly with providers.
+                        </h2>
+                    </div>
+
+                    <div class="evaluate-grid">
+                        <article class="info-card reveal-up">
+                            <span class="card-icon">
+                                <i data-lucide="shield-check"></i>
+                            </span>
+                            <h3>License and insurance</h3>
+                            <p>
+                                Ask each provider what licensing, insurance, or local requirements apply to your
+                                specific gutter project.
+                            </p>
+                        </article>
+
+                        <article class="info-card reveal-up">
+                            <span class="card-icon">
+                                <i data-lucide="file-text"></i>
+                            </span>
+                            <h3>Written quote scope</h3>
+                            <p>
+                                Review materials, labor, removal, cleanup, timing, exclusions, and payment terms before
+                                approving work.
+                            </p>
+                        </article>
+
+                        <article class="info-card reveal-up">
+                            <span class="card-icon">
+                                <i data-lucide="droplets"></i>
+                            </span>
+                            <h3>Drainage plan</h3>
+                            <p>
+                                Discuss how rainwater will move through gutters, downspouts, extensions, and away from
+                                the home.
+                            </p>
+                        </article>
+
+                        <article class="info-card reveal-up">
+                            <span class="card-icon">
+                                <i data-lucide="clock"></i>
+                            </span>
+                            <h3>Availability and timing</h3>
+                            <p>
+                                Provider schedules may vary by location, season, weather, and project complexity.
+                            </p>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT CTA -->
+        <section class="home-contact section" aria-labelledby="homeContactTitle">
+            <div class="container-wide">
+                <div class="home-contact-shell">
+                    <div class="home-contact-copy reveal-up">
+                        <span class="section-kicker">
+                            <i data-lucide="mail"></i>
+                            Start your request
+                        </span>
+
+                        <h2 id="homeContactTitle">
+                            Tell Rainline what kind of gutter help you are comparing.
+                        </h2>
+
+                        <p>
+                            Use the form to describe your gutter project. Rainline is a matching platform and does not
+                            perform gutter work directly.
+                        </p>
+
+                        <div class="contact-mini-list">
+                            <a href="tel:+18887420196" data-phone-link>
+                                <i data-lucide="phone"></i>
+                                <span>Call the matching line</span>
+                            </a>
+
+                            <a href="mailto:hello@rainlinematch.com" data-email-link>
+                                <i data-lucide="mail"></i>
+                                <span data-email-text>hello@rainlinematch.com</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <form class="form-card home-form reveal-up" data-form>
+                        <div class="form-grid">
+                            <div class="form-row">
+                                <div class="field">
+                                    <label for="homeName">Name</label>
+                                    <input id="homeName" name="name" type="text" placeholder="Your name" required />
+                                </div>
+
+                                <div class="field">
+                                    <label for="homePhone">Phone</label>
+                                    <input id="homePhone" name="phone" type="tel" placeholder="Phone number" required />
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="field">
+                                    <label for="homeZip">ZIP code</label>
+                                    <input id="homeZip" name="zip" type="text" placeholder="Example: 78701" required />
+                                </div>
+
+                                <div class="field">
+                                    <label for="homeService">Service type</label>
+                                    <select id="homeService" name="service" required>
+                                        <option value="">Choose one</option>
+                                        <option value="installation">Gutter installation</option>
+                                        <option value="replacement">Gutter replacement</option>
+                                        <option value="repair">Gutter repair</option>
+                                        <option value="cleaning">Gutter cleaning</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <label for="homeMessage">Project details</label>
+                                <textarea id="homeMessage" name="message"
+                                    placeholder="Tell us what is happening with the gutters or what you want to compare."
+                                    required></textarea>
+                            </div>
+
+                            <label class="checkbox-field">
+                                <input type="checkbox" name="consent" required />
+                                <span class="checkbox-mark" aria-hidden="true"></span>
+                                <span class="checkbox-text">
+                                    I agree to be contacted about my gutter request and understand that Rainline is a
+                                    matching platform, not a direct contractor.
+                                </span>
+                            </label>
+
+                            <div class="form-message" data-form-message role="status" aria-live="polite"></div>
+
+                            <button type="submit">
+                                Submit matching request
+                                <i data-lucide="arrow-right"></i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section class="home-faq section" aria-labelledby="homeFaqTitle">
+            <div class="container">
+                <div class="faq-shell">
+                    <div class="faq-intro reveal-up">
+                        <span class="section-kicker">
+                            <i data-lucide="help-circle"></i>
+                            FAQ
+                        </span>
+
+                        <h2 id="homeFaqTitle">
+                            Common questions before comparing gutter providers.
+                        </h2>
+
+                        <p>
+                            These answers explain the Rainline matching model and what homeowners should confirm before
+                            choosing an independent provider.
+                        </p>
+                    </div>
+
+                    <div class="faq-list reveal-up" data-faq-list></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div data-site-footer></div>
+    <div data-policy-banner></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <script src="./js/config.js"></script>
+    <script src="./js/main.js"></script>
+    <script src="./js/home.js"></script>
+</body>
+
+</html>

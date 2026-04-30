@@ -1,0 +1,755 @@
+/* ==========================================================
+   RAINLINE — SERVICE DETAIL PAGES
+   File: /css/service-page.css
+   Used on:
+   gutter-installation.html
+   gutter-replacement.html
+   gutter-repair.html
+   gutter-cleaning.html
+   ========================================================== */
+
+/* =========================
+   SERVICE HERO
+   ========================= */
+
+.service-hero {
+    padding: clamp(20px, 3vw, 36px) 0 var(--section-gap);
+    overflow: hidden;
+}
+
+.service-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background:
+        radial-gradient(circle at 10% 10%, rgba(212, 227, 230, 0.92), transparent 30%),
+        radial-gradient(circle at 88% 6%, rgba(255, 255, 255, 0.86), transparent 34%),
+        linear-gradient(180deg, rgba(238, 244, 245, 0.98), rgba(238, 244, 245, 0.66));
+    pointer-events: none;
+}
+
+.service-hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background-image:
+        linear-gradient(rgba(79, 117, 128, 0.045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(79, 117, 128, 0.045) 1px, transparent 1px);
+    background-size: 56px 56px;
+    mask-image: linear-gradient(180deg, black, transparent 74%);
+    pointer-events: none;
+}
+
+.service-hero-shell {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(480px, 1.1fr);
+    gap: clamp(30px, 5vw, 78px);
+    align-items: center;
+    min-height: clamp(570px, calc(100vh - var(--header-height) - 40px), 740px);
+}
+
+.service-hero-copy {
+    max-width: 750px;
+}
+
+.service-hero-copy h1 {
+    max-width: 860px;
+}
+
+.service-hero-copy p {
+    max-width: 640px;
+    margin-top: 20px;
+    font-size: clamp(17px, 1.25vw, 20px);
+    line-height: 1.65;
+    color: var(--color-muted);
+}
+
+.service-hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 28px;
+}
+
+.service-hero-note {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    max-width: 620px;
+    margin-top: 22px;
+    padding: 14px 16px;
+    border: 1px solid rgba(79, 117, 128, 0.18);
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.64);
+    box-shadow: 0 12px 32px rgba(23, 40, 46, 0.06);
+}
+
+.service-hero-note i {
+    width: 20px;
+    height: 20px;
+    flex: 0 0 20px;
+    margin-top: 2px;
+    color: var(--color-accent);
+}
+
+.service-hero-note span {
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 1.5;
+    color: var(--color-muted);
+}
+
+/* =========================
+   HERO MEDIA
+   ========================= */
+
+.service-hero-media {
+    position: relative;
+    min-height: 580px;
+    perspective: 1100px;
+}
+
+.service-hero-photo {
+    position: absolute;
+    overflow: hidden;
+    margin: 0;
+    border: 1px solid rgba(200, 214, 217, 0.74);
+    background: var(--color-surface);
+    box-shadow: var(--shadow-soft);
+}
+
+.service-hero-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition:
+        transform 1000ms cubic-bezier(0.22, 1, 0.36, 1),
+        filter var(--transition-slow);
+}
+
+.service-hero-photo:hover img {
+    transform: scale(1.055);
+    filter: saturate(1.06) contrast(1.03);
+}
+
+.service-hero-main {
+    inset: 0 86px 58px 0;
+    border-radius: 46px;
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 58px), calc(100% - 58px) 100%, 0 100%);
+}
+
+.service-hero-main::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(90deg, rgba(23, 40, 46, 0.38), transparent 58%),
+        linear-gradient(180deg, transparent 42%, rgba(23, 40, 46, 0.5));
+    pointer-events: none;
+}
+
+.service-hero-small {
+    right: 0;
+    bottom: 0;
+    width: 45%;
+    height: 44%;
+    border-radius: 50% 50% 34px 34px;
+}
+
+.service-hero-badge {
+    position: absolute;
+    left: 30px;
+    bottom: 30px;
+    z-index: 4;
+    display: inline-flex;
+    align-items: center;
+    gap: 11px;
+    max-width: 390px;
+    padding: 13px 16px;
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    border-radius: 999px;
+    color: var(--color-white);
+    background: rgba(23, 40, 46, 0.66);
+    box-shadow: 0 18px 50px rgba(23, 40, 46, 0.2);
+    backdrop-filter: blur(14px);
+}
+
+.service-hero-badge i {
+    width: 19px;
+    height: 19px;
+    flex: 0 0 19px;
+    color: var(--color-accent-soft);
+}
+
+.service-hero-badge span {
+    font-size: 13px;
+    font-weight: 800;
+    line-height: 1.35;
+}
+
+/* =========================
+   OVERVIEW
+   ========================= */
+
+.service-overview-panel {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    gap: clamp(24px, 5vw, 72px);
+    align-items: start;
+    overflow: hidden;
+    padding: clamp(24px, 4vw, 48px);
+    border: 1px solid rgba(200, 214, 217, 0.74);
+    border-radius: 40px;
+    background:
+        radial-gradient(circle at 96% 6%, rgba(212, 227, 230, 0.88), transparent 28%),
+        linear-gradient(145deg, rgba(255, 255, 255, 0.78), rgba(247, 250, 250, 0.9));
+    box-shadow: var(--shadow-soft);
+}
+
+.service-overview-panel::before {
+    content: "";
+    position: absolute;
+    inset: 18px;
+    border: 1px solid rgba(79, 117, 128, 0.08);
+    border-radius: 30px;
+    pointer-events: none;
+}
+
+.service-overview-copy,
+.service-overview-list {
+    position: relative;
+    z-index: 1;
+}
+
+.service-overview-copy p {
+    max-width: 650px;
+    margin-top: 16px;
+    color: var(--color-muted);
+}
+
+.service-overview-list {
+    display: grid;
+    gap: 12px;
+}
+
+.service-overview-list article {
+    display: grid;
+    grid-template-columns: 76px minmax(0, 1fr);
+    gap: 16px;
+    align-items: start;
+    padding: 18px;
+    border: 1px solid rgba(200, 214, 217, 0.76);
+    border-radius: 24px;
+    background: rgba(255, 255, 255, 0.74);
+    box-shadow: 0 12px 30px rgba(23, 40, 46, 0.06);
+    transition:
+        transform var(--transition-base),
+        background var(--transition-base),
+        border-color var(--transition-base);
+}
+
+.service-overview-list article:hover {
+    transform: translateX(5px);
+    border-color: rgba(79, 117, 128, 0.32);
+    background: var(--color-white);
+}
+
+.service-overview-list article>span {
+    display: grid;
+    place-items: center;
+    width: 58px;
+    height: 58px;
+    border-radius: 20px;
+    font-family: var(--font-display);
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--color-accent);
+    background: var(--color-accent-soft);
+}
+
+.service-overview-list h3 {
+    margin-bottom: 7px;
+    font-family: var(--font-body);
+    font-size: 18px;
+    font-weight: 900;
+    letter-spacing: -0.02em;
+    line-height: 1.24;
+}
+
+.service-overview-list p {
+    font-size: 14px;
+    color: var(--color-muted);
+}
+
+/* =========================
+   FACTORS
+   ========================= */
+
+.service-factors {
+    overflow: hidden;
+}
+
+.service-factor-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 14px;
+}
+
+.service-factor-grid .info-card {
+    min-height: 270px;
+}
+
+/* =========================
+   PHOTO SECTION
+   ========================= */
+
+.service-photo-section {
+    overflow: hidden;
+}
+
+.service-photo-card {
+    display: grid;
+    grid-template-columns: minmax(460px, 1.05fr) minmax(0, 0.95fr);
+    gap: clamp(28px, 5vw, 78px);
+    align-items: center;
+}
+
+.service-photo-media {
+    position: relative;
+    min-height: 590px;
+    overflow: hidden;
+    border: 1px solid rgba(200, 214, 217, 0.74);
+    border-radius: 46px;
+    background: var(--color-surface);
+    box-shadow: var(--shadow-soft);
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 58px), calc(100% - 58px) 100%, 0 100%);
+}
+
+.service-photo-media img {
+    width: 100%;
+    height: 100%;
+    min-height: 590px;
+    object-fit: cover;
+    transition:
+        transform 1000ms cubic-bezier(0.22, 1, 0.36, 1),
+        filter var(--transition-slow);
+}
+
+.service-photo-media:hover img {
+    transform: scale(1.055);
+    filter: saturate(1.05) contrast(1.03);
+}
+
+.service-photo-media::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(90deg, rgba(23, 40, 46, 0.44), transparent 62%),
+        linear-gradient(180deg, transparent 40%, rgba(23, 40, 46, 0.52));
+    pointer-events: none;
+}
+
+.service-photo-label {
+    position: absolute;
+    left: 22px;
+    bottom: 22px;
+    z-index: 3;
+    display: inline-flex;
+    align-items: center;
+    gap: 11px;
+    max-width: calc(100% - 44px);
+    padding: 13px 15px;
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    border-radius: 999px;
+    color: var(--color-white);
+    background: rgba(23, 40, 46, 0.64);
+    backdrop-filter: blur(14px);
+}
+
+.service-photo-label i {
+    width: 18px;
+    height: 18px;
+    flex: 0 0 18px;
+    color: var(--color-accent-soft);
+}
+
+.service-photo-label span {
+    font-size: 13px;
+    font-weight: 800;
+    line-height: 1.35;
+}
+
+.service-photo-content p {
+    max-width: 620px;
+    margin-top: 16px;
+    color: var(--color-muted);
+}
+
+.service-question-list {
+    display: grid;
+    gap: 10px;
+    margin-top: 24px;
+}
+
+.service-question-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 13px 15px;
+    border: 1px solid rgba(200, 214, 217, 0.7);
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.64);
+    box-shadow: 0 10px 26px rgba(23, 40, 46, 0.05);
+    transition:
+        transform var(--transition-base),
+        background var(--transition-base),
+        border-color var(--transition-base);
+}
+
+.service-question-list li:hover {
+    transform: translateX(4px);
+    border-color: rgba(79, 117, 128, 0.3);
+    background: rgba(255, 255, 255, 0.92);
+}
+
+.service-question-list i {
+    width: 18px;
+    height: 18px;
+    flex: 0 0 18px;
+    margin-top: 3px;
+    color: var(--color-accent);
+}
+
+.service-question-list span {
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.5;
+    color: var(--color-text);
+}
+
+/* =========================
+   SERVICE CTA
+   ========================= */
+
+.service-cta-shell {
+    position: relative;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 24px;
+    align-items: center;
+    padding: clamp(24px, 4vw, 44px);
+    border: 1px solid rgba(200, 214, 217, 0.74);
+    border-radius: 36px;
+    color: var(--color-white);
+    background:
+        linear-gradient(135deg, rgba(23, 40, 46, 0.92), rgba(54, 88, 98, 0.84)),
+        url("../assets/images/service-pages/service-cta-bg.jpg") center / cover no-repeat;
+    box-shadow: var(--shadow-soft);
+}
+
+.gutter-installation-page .service-cta-shell {
+    background:
+        linear-gradient(135deg, rgba(23, 40, 46, 0.92), rgba(54, 88, 98, 0.84)),
+        url("../assets/images/service-pages/gutter-installation-cta.jpg") center / cover no-repeat;
+}
+
+.gutter-replacement-page .service-cta-shell {
+    background:
+        linear-gradient(135deg, rgba(23, 40, 46, 0.92), rgba(54, 88, 98, 0.84)),
+        url("../assets/images/service-pages/gutter-replacement-cta.jpg") center / cover no-repeat;
+}
+
+.gutter-repair-page .service-cta-shell {
+    background:
+        linear-gradient(135deg, rgba(23, 40, 46, 0.92), rgba(54, 88, 98, 0.84)),
+        url("../assets/images/service-pages/gutter-repair-cta.jpg") center / cover no-repeat;
+}
+
+.gutter-cleaning-page .service-cta-shell {
+    background:
+        linear-gradient(135deg, rgba(23, 40, 46, 0.92), rgba(54, 88, 98, 0.84)),
+        url("../assets/images/service-pages/gutter-cleaning-cta.jpg") center / cover no-repeat;
+}
+
+.service-cta-shell::before {
+    content: "";
+    position: absolute;
+    inset: 18px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 26px;
+    pointer-events: none;
+}
+
+.service-cta-shell>* {
+    position: relative;
+    z-index: 1;
+}
+
+.service-cta-shell .section-kicker,
+.service-cta-shell h2 {
+    color: var(--color-white);
+}
+
+.service-cta-shell .section-kicker {
+    color: var(--color-accent-soft);
+}
+
+.service-cta-shell p {
+    max-width: 750px;
+    margin-top: 14px;
+    color: rgba(247, 250, 250, 0.74);
+}
+
+.service-cta-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.service-cta-actions .btn-secondary {
+    color: var(--color-white);
+    border-color: rgba(255, 255, 255, 0.22);
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(12px);
+}
+
+.service-cta-actions .btn-secondary:hover {
+    color: var(--color-heading);
+    background: var(--color-white);
+}
+
+/* =========================
+   SERVICE FAQ
+   ========================= */
+
+.service-faq .faq-shell {
+    display: grid;
+    grid-template-columns: minmax(0, 0.78fr) minmax(420px, 1fr);
+    gap: clamp(24px, 5vw, 72px);
+    align-items: start;
+}
+
+.service-faq .faq-intro {
+    position: sticky;
+    top: calc(var(--header-height) + 28px);
+}
+
+.service-faq .faq-intro p {
+    max-width: 520px;
+    margin-top: 16px;
+    color: var(--color-muted);
+}
+
+/* =========================
+   PAGE-SPECIFIC MICRO ACCENTS
+   ========================= */
+
+.gutter-installation-page .service-hero-badge,
+.gutter-installation-page .service-photo-label {
+    background: rgba(23, 40, 46, 0.64);
+}
+
+.gutter-replacement-page .service-hero-badge,
+.gutter-replacement-page .service-photo-label {
+    background: rgba(34, 55, 61, 0.66);
+}
+
+.gutter-repair-page .service-hero-badge,
+.gutter-repair-page .service-photo-label {
+    background: rgba(31, 60, 66, 0.66);
+}
+
+.gutter-cleaning-page .service-hero-badge,
+.gutter-cleaning-page .service-photo-label {
+    background: rgba(28, 72, 79, 0.66);
+}
+
+/* =========================
+   RESPONSIVE
+   ========================= */
+
+@media (max-width: 1180px) {
+    .service-hero-shell {
+        grid-template-columns: 1fr;
+        min-height: auto;
+    }
+
+    .service-hero-copy {
+        max-width: 900px;
+        padding-top: 24px;
+    }
+
+    .service-hero-media {
+        min-height: 540px;
+    }
+
+    .service-hero-main {
+        inset: 0 80px 52px 0;
+    }
+
+    .service-overview-panel,
+    .service-photo-card,
+    .service-faq .faq-shell {
+        grid-template-columns: 1fr;
+    }
+
+    .service-factor-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .service-faq .faq-intro {
+        position: static;
+    }
+}
+
+@media (max-width: 880px) {
+    .service-cta-shell {
+        grid-template-columns: 1fr;
+    }
+
+    .service-cta-actions {
+        justify-content: flex-start;
+    }
+
+    .service-photo-media {
+        min-height: 480px;
+    }
+
+    .service-photo-media img {
+        min-height: 480px;
+    }
+}
+
+@media (max-width: 760px) {
+    .service-hero {
+        padding-top: 12px;
+    }
+
+    .service-hero-copy h1 {
+        font-size: clamp(39px, 12vw, 62px);
+    }
+
+    .service-hero-actions {
+        display: grid;
+        grid-template-columns: 1fr;
+        margin-top: 22px;
+    }
+
+    .service-hero-note {
+        padding: 13px;
+        border-radius: 18px;
+    }
+
+    .service-hero-media {
+        min-height: auto;
+        display: grid;
+        gap: 12px;
+    }
+
+    .service-hero-photo {
+        position: relative;
+    }
+
+    .service-hero-main,
+    .service-hero-small {
+        inset: auto;
+        width: 100%;
+        height: auto;
+        min-height: 320px;
+        border-radius: 30px;
+        clip-path: none;
+    }
+
+    .service-hero-photo img {
+        min-height: 320px;
+    }
+
+    .service-hero-badge {
+        position: relative;
+        left: auto;
+        bottom: auto;
+        width: 100%;
+        max-width: none;
+        border-radius: 20px;
+        color: var(--color-heading);
+        background: rgba(255, 255, 255, 0.82) !important;
+    }
+
+    .service-hero-badge i {
+        color: var(--color-accent);
+    }
+
+    .service-overview-panel,
+    .service-cta-shell {
+        padding: 18px;
+        border-radius: 28px;
+    }
+
+    .service-overview-list article {
+        grid-template-columns: 1fr;
+    }
+
+    .service-overview-list article>span {
+        width: 52px;
+        height: 52px;
+    }
+
+    .service-factor-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .service-factor-grid .info-card {
+        min-height: 220px;
+    }
+
+    .service-photo-media {
+        min-height: 380px;
+        border-radius: 30px;
+        clip-path: none;
+    }
+
+    .service-photo-media img {
+        min-height: 380px;
+    }
+
+    .service-photo-label {
+        left: 14px;
+        right: 14px;
+        bottom: 14px;
+        max-width: none;
+        border-radius: 18px;
+    }
+
+    .service-cta-actions {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 520px) {
+    .service-hero-note {
+        align-items: flex-start;
+    }
+
+    .service-photo-label {
+        align-items: flex-start;
+    }
+
+    .service-question-list li {
+        padding: 12px;
+        border-radius: 18px;
+    }
+
+    .service-overview-list article {
+        padding: 16px;
+        border-radius: 22px;
+    }
+}
