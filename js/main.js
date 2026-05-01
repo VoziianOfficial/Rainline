@@ -21,12 +21,14 @@
         companyName: "[data-company-name]",
         companyId: "[data-company-id]",
         phoneText: "[data-phone-text]",
+        phoneNumberText: "[data-phone-number]",
         phoneLink: "[data-phone-link]",
         emailText: "[data-email-text]",
         emailLink: "[data-email-link]",
         addressText: "[data-address-text]",
         footerText: "[data-footer-text]",
         disclaimer: "[data-disclaimer]",
+        legalNotice: "[data-legal-notice]",
         serviceArea: "[data-service-area]"
     };
 
@@ -35,6 +37,7 @@
     };
 
     document.addEventListener("DOMContentLoaded", init);
+    applyPageMeta();
 
     function init() {
         renderHeader();
@@ -55,6 +58,41 @@
         initFormValidation();
         initExternalLibraries();
         preventHorizontalScroll();
+    }
+
+    function applyPageMeta() {
+        if (!config.pageMeta) {
+            return;
+        }
+
+        const currentPage = normalizePath(window.location.pathname);
+        const pageMetaForCurrentPage = config.pageMeta[currentPage];
+
+        if (!pageMetaForCurrentPage) {
+            console.warn(`pageMeta is missing for ${currentPage}.`);
+        }
+
+        const meta = pageMetaForCurrentPage || config.pageMeta["index.html"];
+
+        if (!meta) {
+            return;
+        }
+
+        if (meta.title) {
+            document.title = meta.title;
+        }
+
+        if (meta.description) {
+            let descriptionTag = document.querySelector('meta[name="description"]');
+
+            if (!descriptionTag) {
+                descriptionTag = document.createElement("meta");
+                descriptionTag.setAttribute("name", "description");
+                document.head.append(descriptionTag);
+            }
+
+            descriptionTag.setAttribute("content", meta.description);
+        }
     }
 
 
@@ -330,7 +368,7 @@
                 <div class="mobile-contact">
                     <a href="tel:${escapeHtml(config.phoneHref)}" data-phone-link>
                         ${createIcon("phone")}
-                        <span data-phone-text>${escapeHtml(config.phone)}</span>
+                        <span data-phone-number>${escapeHtml(config.phone)}</span>
                     </a>
 
                     <a href="mailto:${escapeHtml(config.email)}" data-email-link>
@@ -428,13 +466,17 @@
                 </div>
 
                 <div class="footer-disclaimer">
+                    <p data-legal-notice>${escapeHtml(config.legalNotice)}</p>
                     <p data-disclaimer>${escapeHtml(config.disclaimer)}</p>
                 </div>
 
                 <div class="footer-bottom">
                     <span>
                         © <span data-current-year></span>
-                        <span data-company-name>${escapeHtml(config.companyName)}</span>.
+                        <span data-company-name>${escapeHtml(config.companyName)}</span>
+                        (<span data-company-id>${escapeHtml(config.companyId)}</span>)
+                        <span> · </span>
+                        <span data-address-text>${escapeHtml(config.address.full)}</span>.
                         Independent provider matching platform.
                     </span>
 
@@ -521,6 +563,10 @@
             element.textContent = config.phoneLabel || config.phone;
         });
 
+        qsa(selectors.phoneNumberText).forEach((element) => {
+            element.textContent = config.phone;
+        });
+
         qsa(selectors.phoneLink).forEach((element) => {
             element.setAttribute("href", `tel:${config.phoneHref}`);
         });
@@ -543,6 +589,10 @@
 
         qsa(selectors.disclaimer).forEach((element) => {
             element.textContent = config.disclaimer;
+        });
+
+        qsa(selectors.legalNotice).forEach((element) => {
+            element.textContent = config.legalNotice;
         });
 
         qsa(selectors.serviceArea).forEach((element) => {
@@ -850,6 +900,48 @@
         const shouldRenderSchema = document.body.hasAttribute("data-has-faq-schema") || qs(selectors.faqSchemaMount);
 
         if (!shouldRenderSchema) {
+            return;
+        }
+
+        const existingJsonLd = qsa('script[type="application/ld+json"]');
+        const hasFaqSchemaAlready = existingJsonLd.some((script) => {
+            const raw = (script.textContent || "").trim();
+
+            if (!raw) {
+                return false;
+            }
+
+            try {
+                const parsed = JSON.parse(raw);
+                const stack = Array.isArray(parsed) ? [...parsed] : [parsed];
+
+                while (stack.length) {
+                    const value = stack.pop();
+
+                    if (!value || typeof value !== "object") {
+                        continue;
+                    }
+
+                    const typeValue = value["@type"];
+
+                    if (typeValue === "FAQPage" || (Array.isArray(typeValue) && typeValue.includes("FAQPage"))) {
+                        return true;
+                    }
+
+                    Object.values(value).forEach((child) => {
+                        if (child && typeof child === "object") {
+                            stack.push(child);
+                        }
+                    });
+                }
+            } catch {
+                return raw.includes("FAQPage");
+            }
+
+            return false;
+        });
+
+        if (hasFaqSchemaAlready) {
             return;
         }
 

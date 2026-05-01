@@ -219,9 +219,9 @@ window.SITE_CONFIG = {
     forms: {
         contactFormTitle: "Start a gutter provider matching request",
         contactFormText:
-            "Share a few details about your gutter project. Rainline may help connect you with independent local providers based on your request and service area.",
+            `Share a few details about your gutter project. ${companyName} may help connect you with independent local providers based on your request and service area.`,
         consentText:
-            "I agree to be contacted about my gutter request and understand that Rainline is a matching platform, not a direct contractor.",
+            `I agree to be contacted about my gutter request and understand that ${companyName} is a matching platform, not a direct contractor.`,
         successMessage:
             "Thank you. Your request has been prepared. A matching flow would continue from here.",
         errorMessage:
@@ -232,7 +232,7 @@ window.SITE_CONFIG = {
         storageKey: "rainline_policy_choice",
         title: "Privacy & site policies",
         text:
-            "Rainline uses essential site functionality and policy notices to support a clear provider-matching experience. Please review the legal pages before continuing.",
+            `${companyName} uses essential site functionality and policy notices to support a clear provider-matching experience. Please review the legal pages before continuing.`,
         acceptLabel: "Accept",
         declineLabel: "Decline",
         links: [
@@ -253,9 +253,9 @@ window.SITE_CONFIG = {
 
     faq: [
         {
-            question: "Is Rainline a gutter contractor?",
+            question: `Is ${companyName} a gutter contractor?`,
             answer:
-                "No. Rainline is not a gutter contractor and does not perform gutter installation, replacement, repair, cleaning, or maintenance directly. Rainline helps homeowners connect with independent local providers."
+                `No. ${companyName} is not a gutter contractor and does not perform gutter installation, replacement, repair, cleaning, or maintenance directly. ${companyName} helps homeowners connect with independent local providers.`
         },
         {
             question: "How do I compare local gutter providers?",
@@ -275,7 +275,7 @@ window.SITE_CONFIG = {
         {
             question: "How do I know if a provider serves my area?",
             answer:
-                "Provider availability can vary by ZIP code, city, and project type. Rainline helps organize your request so relevant local provider options may be identified."
+                `Provider availability can vary by ZIP code, city, and project type. ${companyName} helps organize your request so relevant local provider options may be identified.`
         }
     ],
 
@@ -291,7 +291,7 @@ window.SITE_CONFIG = {
             {
                 label: "Platform model",
                 value: "Independent",
-                text: "Rainline helps connect homeowners with local providers."
+                text: `${companyName} helps connect homeowners with local providers.`
             },
             {
                 label: "User focus",
@@ -299,5 +299,63 @@ window.SITE_CONFIG = {
                 text: "Structured project details help make provider follow-up clearer."
             }
         ]
+    },
+
+    pageMeta: {
+        "index.html": {
+            title: `${companyName} | Compare Local Gutter Providers`,
+            description:
+                `${companyName} helps homeowners compare local gutter providers for installation, replacement, repair, and cleaning requests across the United States.`
+        },
+        "services.html": {
+            title: `Gutter Services | ${companyName}`,
+            description:
+                `Explore ${companyName} gutter service categories and compare local providers for gutter installation, replacement, repair, and cleaning requests.`
+        },
+        "gutter-installation.html": {
+            title: `Gutter Installation | ${companyName}`,
+            description:
+                `Compare local gutter installation providers with ${companyName}. Start a request for new gutters, downspouts, drainage planning, and installation quote options.`
+        },
+        "gutter-replacement.html": {
+            title: `Gutter Replacement | ${companyName}`,
+            description:
+                `Compare local gutter replacement providers with ${companyName}. Start a request for aging, sagging, leaking, rusted, or damaged gutter replacement options.`
+        },
+        "gutter-repair.html": {
+            title: `Gutter Repair | ${companyName}`,
+            description:
+                `Compare local gutter repair providers with ${companyName}. Start a request for leaking gutters, loose sections, separated joints, overflow, and downspout repair options.`
+        },
+        "gutter-cleaning.html": {
+            title: `Gutter Cleaning | ${companyName}`,
+            description:
+                `Compare local gutter cleaning providers with ${companyName}. Start a request for clogged gutters, debris removal, downspout clearing, overflow issues, and seasonal gutter maintenance.`
+        },
+        "about.html": {
+            title: `About ${companyName} | Independent Gutter Provider Matching`,
+            description:
+                `Learn how ${companyName} helps homeowners compare independent local gutter providers for installation, replacement, repair, and cleaning requests.`
+        },
+        "contact.html": {
+            title: `Contact ${companyName} | Start a Gutter Provider Request`,
+            description:
+                `Contact ${companyName} to start a gutter provider matching request for installation, replacement, repair, or cleaning options in your area.`
+        },
+        "privacy-policy.html": {
+            title: `Privacy Policy | ${companyName}`,
+            description:
+                `Read the ${companyName} Privacy Policy. Learn how ${companyName} handles information submitted through its independent gutter provider matching platform.`
+        },
+        "cookie-policy.html": {
+            title: `Cookie Policy | ${companyName}`,
+            description:
+                `Read the ${companyName} Cookie Policy. Learn how ${companyName} may use cookies and similar technologies on its gutter provider matching website.`
+        },
+        "terms-of-service.html": {
+            title: `Terms of Service | ${companyName}`,
+            description:
+                `Read the ${companyName} Terms of Service. Learn the terms for using ${companyName}’s independent gutter provider matching website.`
+        }
     }
 };
