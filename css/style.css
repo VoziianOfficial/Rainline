@@ -1987,3 +1987,171 @@ body.has-fixed-header {
         transform 220ms ease,
         visibility 220ms ease !important;
 }
+
+/* ==========================================================
+   DISABLE CARD / IMAGE MOTION
+   No scale, no translate, no rotate on hover / active
+   ========================================================== */
+
+/* HOME INTRO STRIP */
+.home-intro-strip .intro-strip-inner article {
+    transform: none !important;
+    transition: background var(--transition-base), border-color var(--transition-base) !important;
+}
+
+.home-intro-strip .intro-strip-inner article:hover,
+.home-intro-strip .intro-strip-inner article:active,
+.home-intro-strip .intro-strip-inner article:focus-within {
+    transform: none !important;
+}
+
+/* убираем анимацию линии снизу, оставляем только спокойный hover */
+.home-intro-strip .intro-strip-inner article::after {
+    transform: none !important;
+    opacity: 0;
+    transition: opacity var(--transition-base) !important;
+}
+
+.home-intro-strip .intro-strip-inner article:hover::after {
+    opacity: 1;
+}
+
+
+/* SERVICES CATEGORY CARDS */
+.services-feature-card a,
+.services-feature-card img,
+.services-feature-icon,
+.services-feature-arrow {
+    transform: none !important;
+}
+
+.services-feature-card a {
+    transform-style: flat !important;
+    transition: border-color var(--transition-base), box-shadow var(--transition-base) !important;
+}
+
+.services-feature-card a:hover,
+.services-feature-card a:active,
+.services-feature-card a:focus-visible {
+    transform: none !important;
+    border-color: rgba(79, 117, 128, 0.44);
+    box-shadow: 0 16px 44px rgba(23, 40, 46, 0.12);
+}
+
+.services-feature-card img {
+    transform: none !important;
+    transition: filter var(--transition-base) !important;
+}
+
+.services-feature-card a:hover img,
+.services-feature-card a:active img,
+.services-feature-card a:focus-visible img {
+    transform: none !important;
+    filter: none !important;
+}
+
+.services-feature-card a:hover .services-feature-icon,
+.services-feature-card a:active .services-feature-icon,
+.services-feature-card a:focus-visible .services-feature-icon {
+    transform: none !important;
+    background: rgba(23, 40, 46, 0.44);
+}
+
+.services-feature-card a:hover .services-feature-arrow,
+.services-feature-card a:active .services-feature-arrow,
+.services-feature-card a:focus-visible .services-feature-arrow {
+    transform: none !important;
+}
+
+
+/* HOME SERVICE CARDS — если такие карточки тоже есть на главной */
+.service-card-link,
+.service-card-link img,
+.service-card-icon,
+.service-card-arrow {
+    transform: none !important;
+}
+
+.service-card-link {
+    transform-style: flat !important;
+    transition: border-color var(--transition-base), box-shadow var(--transition-base) !important;
+}
+
+.service-card-link:hover,
+.service-card-link:active,
+.service-card-link:focus-visible {
+    transform: none !important;
+    box-shadow: 0 16px 44px rgba(23, 40, 46, 0.12);
+}
+
+.service-card-link:hover img,
+.service-card-link:active img,
+.service-card-link:focus-visible img {
+    transform: none !important;
+    filter: none !important;
+}
+
+.service-card-link:hover .service-card-icon,
+.service-card-link:active .service-card-icon,
+.service-card-link:focus-visible .service-card-icon {
+    transform: none !important;
+    background: rgba(23, 40, 46, 0.42);
+}
+
+.service-card-link:hover .service-card-arrow,
+.service-card-link:active .service-card-arrow,
+.service-card-link:focus-visible .service-card-arrow {
+    transform: none !important;
+}
+
+
+/* OTHER IMAGE SECTIONS — чтобы фото не увеличивались */
+.services-questions-media img,
+.editorial-photo img,
+.gallery-slide img {
+    transform: none !important;
+    transition: none !important;
+}
+
+.services-questions-media:hover img,
+.editorial-photo:hover img,
+.gallery-slide:hover img {
+    transform: none !important;
+    filter: none !important;
+}
+
+
+/* OTHER SMALL CARDS — убираем сдвиги */
+.services-compare-list article,
+.question-pill-list article,
+.process-steps article,
+.process-steps article>span,
+.rainflow-dot,
+.rainflow-content,
+.services-faq-row-number,
+.services-faq-row-main,
+.services-faq-line,
+.contact-mini-list a {
+    transform: none !important;
+}
+
+.services-compare-list article:hover,
+.question-pill-list article:hover,
+.process-steps article:hover,
+.process-steps article:hover>span,
+.rainflow-step:hover .rainflow-dot,
+.rainflow-step:hover .rainflow-content,
+.services-faq-row:hover .services-faq-row-number,
+.services-faq-row:hover .services-faq-row-main,
+.services-faq-line:hover,
+.contact-mini-list a:hover {
+    transform: none !important;
+}
+
+
+/* убираем активное "нажатие", если где-то браузер/общие стили дают движение */
+a:active,
+button:active,
+article:active {
+    transform: none !important;
+}

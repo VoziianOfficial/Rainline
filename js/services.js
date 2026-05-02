@@ -7,7 +7,6 @@
     function initServicesPage() {
         initServicesHeroMotion();
         initServicesCardsDrag();
-        initQuestionPillsMotion();
     }
 
 
